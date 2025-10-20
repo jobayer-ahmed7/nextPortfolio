@@ -9,7 +9,7 @@ export async function fetchProjects(): Promise<IProject[]> {
       },
       cache: 'no-store' // To ensure we always get fresh data
     });
-
+ 
     if (!response.ok) {
       throw new Error(`Error: ${response.status}`);
     }

@@ -10,17 +10,21 @@ import Link from "next/link";
 import Loading from "../shared/Loading";
 const FeaturedProjects = () => {
   const [projects, setProjects] = useState<IProject[]>([]);
+  const [isLoading, setIsLoading] =useState<boolean>(true)
   const [showMore, setShowMore] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   console.log(projects);
 
   const fetchAllProjects = async () => {
+    setIsLoading(true)
     try {
       const res = await fetchProjects();
       setProjects(res);
     } catch (error) {
       console.error("Failed to fetch projects", error);
+    }finally{
+      setIsLoading(false)
     }
   };
 
@@ -36,11 +40,11 @@ const FeaturedProjects = () => {
     }, 150);
   };
 
-
   // Determine how many projects to show
   const projectsToShow = showMore ? 6 : 3;
   const displayedProjects = projects.slice(0, projectsToShow);
   const hasMoreProjects = projects.length > 3;
+
 
   return (
     <div
@@ -49,9 +53,9 @@ const FeaturedProjects = () => {
       }`}
     >
       <SectionHeading title="PROJECTS" />
-
+      {/* <Loading /> */}
       {/* Projects Grid */}
-      {!projects ? (
+      {isLoading ? (
         <Loading />
       ) : (
         <div
