@@ -1,5 +1,5 @@
 import { IProject } from "@/models/Projects";
-import { ArrowRight, Globe, Code, ExternalLink, Calendar } from "lucide-react";
+import { ArrowRight, Globe, Code, Calendar } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import TechnologyBadge from "./TechnologyBadge";
@@ -36,7 +36,7 @@ const ProjectCard = ({ project }: { project: IProject }) => {
         {/* Title and Date */}
         <div>
           <h3 className="text-xl font-bold text-lightGrey mb-2 group-hover:text-classicGold transition-colors duration-300">
-            {project?.title}
+             {project?.title.length > 40 ? `${project.title.slice(0, 40)}...`: `${project.title}`}
           </h3>
           {project.createdAt && (
             <div className="flex items-center text-lightGrey/60 text-sm mb-2">
@@ -51,7 +51,7 @@ const ProjectCard = ({ project }: { project: IProject }) => {
 
         {/* Description */}
         <p className="text-lightGrey/80 text-sm line-clamp-3 leading-relaxed">
-          {project?.overview}
+          {project?.overview.length > 120 ? `${project.overview.slice(0, 120)}...`: `${project.overview}`}
         </p>
 
         {/* Technologies */}

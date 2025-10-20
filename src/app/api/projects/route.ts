@@ -6,7 +6,7 @@ export async function GET() {
     try {
         await connectToDatabase();
         const projects = await Project.find({}).sort({ createdAt: -1 })
-        if (!projects || projects.length === 0) {
+        if (!projects || projects.length === 0) { 
             return NextResponse.json([], { status: 200 })
         }
 
