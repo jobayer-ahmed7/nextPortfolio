@@ -84,7 +84,7 @@ const ContactMe = () => {
       <div className="flex flex-col  lg:flex-row w-full lg:justify-between  ">
         {/* Left Section - Contact Form */}
         <div className="w-full h-full lg:w-3/5 ">
-          <div className="bg-cardBg/60 backdrop-blur-none  p-8 border border-mutedGrey/50 shadow-2xl rounded-t-2xl lg:rounded-l-2xl">
+          <div className="bg-cardBg/60 backdrop-blur-none  p-8 border border-mutedGrey/50 shadow-2xl rounded-t-2xl lg:rounded-l-2xl lg:rounded-r-none">
             <h3 className="text-2xl font-bold text-offWhite mb-6 flex items-center">
               <FaEnvelope className="mr-3 text-classicGold" />
               Get In Touch
@@ -209,7 +209,7 @@ const ContactMe = () => {
 
         {/* Right Section - Contact Info */}
         <div className="w-full   lg:w-2/5 ">
-          <div className="bg-cardBg h-full  p-8 border border-mutedGrey/30 lg:rounded-r-2xl rounded-b-2xl">
+          <div className="bg-cardBg h-full  p-8 border border-mutedGrey/30 lg:rounded-r-2xl lg:rounded-l-none rounded-b-2xl">
             <h3 className="text-2xl font-bold text-offWhite mb-8 text-center">
               Let&apos;s Connect
             </h3>
@@ -253,7 +253,7 @@ const ContactMe = () => {
                 <div className="flex justify-center gap-6">
                   <a
                     className="text-lightGrey/70 hover:text-offWhite hover:scale-110 transition-all duration-300 p-3 bg-mutedGrey/50 rounded-full hover:bg-classicGold/20 hover:shadow-lg hover:shadow-classicGold/10"
-                    href="https://github.com/ahmed-jobayer"
+                    href="https://github.com/jobayer-ahmed7"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="GitHub Profile"
@@ -262,7 +262,7 @@ const ContactMe = () => {
                   </a>
                   <a
                     className="text-lightGrey/70 hover:text-offWhite hover:scale-110 transition-all duration-300 p-3 bg-mutedGrey/50 rounded-full hover:bg-classicGold/20 hover:shadow-lg hover:shadow-classicGold/10"
-                    href="https://www.linkedin.com/in/ahmed-jobayer/"
+                    href="https://www.linkedin.com/in/jobayerahmmed7/"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="LinkedIn Profile"
@@ -271,7 +271,7 @@ const ContactMe = () => {
                   </a>
                   <a
                     className="text-lightGrey/70 hover:text-offWhite hover:scale-110 transition-all duration-300 p-3 bg-mutedGrey/50 rounded-full hover:bg-classicGold/20 hover:shadow-lg hover:shadow-classicGold/10"
-                    href="https://x.com/ahmed__jobayer"
+                    href="https://x.com/jobayer_ahmed07"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Twitter Profile"
