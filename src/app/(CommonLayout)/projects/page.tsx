@@ -99,13 +99,19 @@ const Projects = () => {
     <div className="min-h-screen px-6 py-12">
       {/* Header */}
       <div className="mb-8">
-        <Link
-          href="/"
-          className="inline-flex items-center text-lightGrey hover:text-classicGold transition-colors duration-300 mb-6"
-        >
-          <ArrowLeft className="w-5 h-5 mr-2" />
-          Back to Home
-        </Link>
+       <p className="py-4 flex gap-2">
+            <Link href={"/"}>
+              <button
+                type="button"
+                className="cursor-pointer text-center w-36 rounded-2xl h-8 relative text-xl font-semibold border-2 border-darkGrey group"
+              >
+                <div className="bg-mutedGrey  rounded-xl h-[28px] w-1/3 grid place-items-center absolute left-0 top-0 group-hover:w-full group-hover:text-classicGold z-10 duration-500">
+                  <ArrowLeft />
+                </div>
+                <p className="translate-x-4 text-classicGold">Go Back</p>
+              </button>
+            </Link>
+          </p>
         <SectionHeading title="ALL PROJECTS" />
         <p className="text-center text-lightGrey/80 max-w-2xl mx-auto">
           Explore my complete portfolio of web applications, featuring modern
