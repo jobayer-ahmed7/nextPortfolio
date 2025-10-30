@@ -95,7 +95,7 @@ const ProjectDetailsPage = () => {
             <CarouselNext />
           </Carousel>
 
-          <div className=" grid grid-cols-1 lg:grid-cols-12 gap-4 mt-4">
+          <div className=" lg:grid lg:grid-cols-12 gap-6 mt-4">
             <div className="col-span-12 lg:flex  space-y-4 justify-between">
               <h2 className="text-4xl  font-semibold">{project?.title}</h2>
               <p className="flex gap-4">
@@ -122,7 +122,7 @@ const ProjectDetailsPage = () => {
                 </Link>
               </p>
             </div>
-            <div className="col-span-7 space-y-4">
+            <div className="lg:col-span-7 space-y-4">
               <div className=" p-4 rounded-4xl inset-shadow-xs inset-shadow-darkGrey">
                 <h3 className="text-3xl text-offWhite mb-6">Overview</h3>
                 <p>{project?.overview}</p>
@@ -136,7 +136,7 @@ const ProjectDetailsPage = () => {
                 </ul>
               </div>
             </div>
-            <div className="col-span-5 space-y-4">
+            <div className="lg:col-span-5 space-y-4">
               <h3 className="text-3xl text-offWhite mb-6">Technologies</h3>
               <div className=" p-4 rounded-4xl inset-shadow-xs inset-shadow-darkGrey">
                 <h3 className="text-3xl text-offWhite mb-6">Frontend</h3>

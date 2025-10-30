@@ -47,7 +47,7 @@ const HeroSection = () => {
             software that improves the lives of those around me.
           </p>
           <div className="flex gap-10 my-10 flex-col lg:flex-row  ">
-            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+            <a href="https://drive.google.com/file/d/1-BI9pLofpFi5FxPgISnCcmtwnHvxPLCG/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
               <CvButton className=" " label="Preview CV" icon={ScanEye} />
             </a>
             <a
@@ -60,21 +60,21 @@ const HeroSection = () => {
           <div className="flex text-3xl sm:text-4xl gap-4 sm:gap-6 text-lightGrey">
             <a
               className="hover:scale-125 duration-300 "
-              href="https://github.com/ahmed-jobayer"
+              href="https://github.com/jobayer-ahmed7"
               target="_blank"
             >
               <FaGithub />
             </a>
             <a
               className="hover:scale-125 duration-300 "
-              href="https://www.linkedin.com/in/ahmed-jobayer/"
+              href="https://www.linkedin.com/in/jobayerahmmed7/"
               target="_blank"
             >
               <FaLinkedin />
             </a>
             <a
               className="hover:scale-125 duration-300 "
-              href="https://x.com/ahmed__jobayer"
+              href="https://x.com/jobayer_ahmed07"
               target="_blank"
             >
               <FaSquareXTwitter />
