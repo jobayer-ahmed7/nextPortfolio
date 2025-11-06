@@ -20,7 +20,7 @@ const CommonLayout = ({ children }: { children: React.ReactNode }) => {
 
         <Footer />
       </main>
-    </>
+    </> 
   );
 };
 
