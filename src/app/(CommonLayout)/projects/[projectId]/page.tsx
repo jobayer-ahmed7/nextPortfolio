@@ -14,15 +14,16 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
 import CvButton from "@/components/shared/butttons/cvButton/CvButton";
 import Image from "next/image";
 import { fetchProjectById } from "@/lib/api";
 import { IProject } from "@/models/Projects";
 import Loading from "@/components/shared/Loading";
+import BackButton from "@/components/shared/butttons/BackButton";
 
 const ProjectDetailsPage = () => {
   const { projectId } = useParams();
+
 
   console.log(projectId);
   const [project, setProject] = useState<IProject>();
@@ -54,21 +55,11 @@ const ProjectDetailsPage = () => {
   return (
     <div className=" min-h-screen text-lightGrey">
       {!project ? (
-        <Loading height={'min-h-screen'}/>
+        <Loading height={"min-h-screen"} />
       ) : (
         <div className="container mx-auto p-4 ">
           <p className="py-4 flex gap-2">
-            <Link href={"/"}>
-              <button
-                type="button"
-                className="cursor-pointer text-center w-36 rounded-2xl h-8 relative text-xl font-semibold border-2 border-darkGrey group"
-              >
-                <div className="bg-mutedGrey  rounded-xl h-[28px] w-1/3 grid place-items-center absolute left-0 top-0 group-hover:w-full group-hover:text-classicGold z-10 duration-500">
-                  <ArrowLeft />
-                </div>
-                <p className="translate-x-4 text-classicGold">Go Back</p>
-              </button>
-            </Link>
+            <BackButton/>
           </p>
           <Carousel
             plugins={[plugin.current]}

@@ -5,10 +5,11 @@ import { IProject } from "@/models/Projects";
 import React, { useEffect, useState, useMemo } from "react";
 import ProjectCard from "@/components/shared/ProjectCard";
 import SectionHeading from "@/components/shared/SectionHeading";
-import { ArrowLeft, Code, Globe } from "lucide-react";
+import {  Code, Globe } from "lucide-react";
 import Link from "next/link";
 import TechnologyBadge from "@/components/shared/TechnologyBadge";
 import FilterPanel from "@/components/shared/FilterPanel";
+import BackButton from "@/components/shared/butttons/BackButton";
 
 const Projects = () => {
   const [projects, setProjects] = useState<IProject[]>([]);
@@ -100,17 +101,7 @@ const Projects = () => {
       {/* Header */}
       <div className="mb-8">
        <p className="py-4 flex gap-2">
-            <Link href={"/"}>
-              <button
-                type="button"
-                className="cursor-pointer text-center w-36 rounded-2xl h-8 relative text-xl font-semibold border-2 border-darkGrey group"
-              >
-                <div className="bg-mutedGrey  rounded-xl h-[28px] w-1/3 grid place-items-center absolute left-0 top-0 group-hover:w-full group-hover:text-classicGold z-10 duration-500">
-                  <ArrowLeft />
-                </div>
-                <p className="translate-x-4 text-classicGold">Go Back</p>
-              </button>
-            </Link>
+            <BackButton/>
           </p>
         <SectionHeading title="ALL PROJECTS" />
         <p className="text-center text-lightGrey/80 max-w-2xl mx-auto">
@@ -167,7 +158,7 @@ const Projects = () => {
             ))}
           </div>
         ) : (
-          <div className="space-y-6">
+          <div className="space-y-6"> 
             {filteredAndSortedProjects.map((project, index) => (
               <div
                 key={project._id || index}
