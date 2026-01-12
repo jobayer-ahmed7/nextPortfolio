@@ -37,9 +37,9 @@ const AboutMe = () => {
             <div className=" bg-cardBg/50 backdrop-blur-none rounded-2xl p-8 border border-mutedGrey/30 shadow-xl">
               <div className="mb-6">
                 <h3 className="text-3xl font-bold text-classicGold mb-4">
-                  MERN Stack Developer
+                  Full Stack Developer
                 </h3>
-                <div className="w-16 h-1 bg-gradient-to-r from-classicGold to-yellow-500 rounded-full mb-6"></div>
+                <div className="w-14 h-1 bg-gradient-to-r from-classicGold to-yellow-500 rounded-full mb-6"></div>
               </div>
 
               <p className="text-lightGrey leading-relaxed text-lg mb-6">
