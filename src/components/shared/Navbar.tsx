@@ -1,9 +1,10 @@
 "use client";
 import {
+  Home,
+  CircleUser,
   Brain,
   BriefcaseBusiness,
-  CircleUser,
-  Home,
+  Briefcase,
   LucideIcon,
   Send,
 } from "lucide-react";
@@ -51,6 +52,7 @@ const Navbar = () => {
     { id: "about", icon: CircleUser, label: "About" },
     { id: "skills", icon: Brain, label: "Skills" },
     { id: "projects", icon: BriefcaseBusiness, label: "Projects" },
+    { id: "experience", icon: Briefcase, label: "Experience" },
     { id: "contact", icon: Send, label: "Contact" },
   ];
 
