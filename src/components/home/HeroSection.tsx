@@ -29,9 +29,9 @@ const HeroSection = () => {
                 sequence={[
                   "Full Stack Developer",
                   2000,
-                  "MERN Stack Specialist",
+                  "MERN Stack Developer",
                   2000,
-                  "Next.js Expert",
+                  "Next.js Developer",
                   2000,
                   "React Developer",
                   2000,

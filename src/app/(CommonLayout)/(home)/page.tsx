@@ -10,8 +10,8 @@ import FeaturedProjects from "@/components/home/FeaturedProjects";
 
 const HomePage = () => {
   return (
-    <div className="text-lightGrey mb-16 container mx-auto">
-      <Navbar />
+    <div className="text-lightGrey mb-16 ">
+      <Navbar /> 
 
       {/* Hero Section with its own background */}
       <section id="home">
