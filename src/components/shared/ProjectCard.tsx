@@ -17,8 +17,9 @@ const ProjectCard = ({ project }: { project: IProject }) => {
         <Image
           src={project?.images[0]}
           alt={project?.title}
-          layout="fill" 
-          objectFit="cover"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 360px"
+          style={{ objectFit: "cover" }}
           className="group-hover:scale-105 transition-transform duration-300"
         />
         {project.isFeatured && (
@@ -28,7 +29,7 @@ const ProjectCard = ({ project }: { project: IProject }) => {
             </span>
           </div>
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" />
       </div>
       
       {/* Project Content */}

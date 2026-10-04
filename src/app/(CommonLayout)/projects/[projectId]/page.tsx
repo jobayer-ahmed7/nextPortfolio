@@ -89,24 +89,24 @@ const ProjectDetailsPage = () => {
           <div className=" lg:grid lg:grid-cols-12 gap-6 mt-4">
             <div className="col-span-12 lg:flex  space-y-4 justify-between">
               <h2 className="text-4xl  font-semibold">{project?.title}</h2>
-              <p className="flex gap-4">
+              <p className="flex flex-wrap gap-3">
                 <Link target="_blank" href={project?.liveLink}>
                   <CvButton
-                    className="!px-3"
+                    className="px-3!"
                     icon={GoLinkExternal}
                     label="Live Link"
                   />
                 </Link>
                 <Link target="_blank" href={project?.frontendCode}>
                   <CvButton
-                    className="!px-3"
+                    className="px-3!"
                     icon={FiGithub}
                     label="Frontend Code"
                   />
                 </Link>
                 <Link target="_blank" href={project?.backendCode}>
                   <CvButton
-                    className="!px-3"
+                    className="px-3!"
                     icon={FiGithub}
                     label="Backend Code"
                   />

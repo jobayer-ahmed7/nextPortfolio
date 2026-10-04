@@ -1,6 +1,6 @@
 import Image from "next/image";
+import { FaCode, FaHeart, FaLaptopCode, FaRocket } from "react-icons/fa";
 import SectionHeading from "../shared/SectionHeading";
-import { FaCode, FaLaptopCode, FaRocket, FaHeart } from "react-icons/fa";
 
 const AboutMe = () => {
   const highlights = [
@@ -27,7 +27,7 @@ const AboutMe = () => {
   ];
 
   return (
-    <div className="min-h-[90vh] py-16 px-4">
+    <div className="min-h-[90vh] py-16 px-4 overflow-x-hidden">
       <div className="container mx-auto">
         <SectionHeading title="ABOUT ME" />
 
@@ -39,7 +39,7 @@ const AboutMe = () => {
                 <h3 className="text-3xl font-bold text-classicGold mb-4">
                   Full Stack Developer
                 </h3>
-                <div className="w-14 h-1 bg-gradient-to-r from-classicGold to-yellow-500 rounded-full mb-6"></div>
+                <div className="w-14 h-1 bg-linear-to-r from-classicGold to-yellow-500 rounded-full mb-6"></div>
               </div>
 
               <p className="text-lightGrey leading-relaxed text-lg mb-6">
@@ -73,9 +73,7 @@ const AboutMe = () => {
                   key={index}
                   className=" bg-mutedGrey/30 backdrop-blur-sm rounded-xl p-4 border border-darkGrey/30 hover:border-classicGold/50 transition-all duration-300 hover:transform hover:scale-[1.01] group"
                 >
-                  <div className="text-classicGold mb-3 ">
-                    {item.icon}
-                  </div>
+                  <div className="text-classicGold mb-3 ">{item.icon}</div>
                   <h4 className="text-offWhite font-semibold text-sm mb-2">
                     {item.title}
                   </h4>
@@ -89,31 +87,31 @@ const AboutMe = () => {
 
           {/* Image Section */}
           <div className="flex justify-center items-center order-1 lg:order-2">
-            <div className="relative w-full max-w-md">
+            <div className="relative w-4/5 max-w-xs sm:w-full sm:max-w-sm lg:max-w-md">
               {/* Background decoration */}
-              <div className="absolute inset-0 bg-gradient-to-br from-classicGold/20 via-transparent to-classicGold/10 rounded-3xl transform rotate-6 scale-105"></div>
-              <div className="absolute inset-0 bg-gradient-to-tl from-mutedGrey/30 via-transparent to-cardBg/40 rounded-3xl transform -rotate-3 scale-105"></div>
+              <div className="absolute inset-0 bg-linear-to-br from-classicGold/20 via-transparent to-classicGold/10 rounded-3xl transform rotate-6 scale-105"></div>
+              <div className="absolute inset-0 bg-linear-to-tl from-mutedGrey/30 via-transparent to-cardBg/40 rounded-3xl transform -rotate-3 scale-105"></div>
 
               {/* Main image container */}
-              <div className=" relative bg-gradient-to-br from-cardBg via-mutedGrey/50 to-cardBg p-6 rounded-3xl border border-classicGold/20 shadow-2xl hover:shadow-classicGold/10 transition-all duration-500 group">
-                <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border-2 border-classicGold/30 group-hover:border-classicGold/60 transition-colors duration-300">
+              <div className=" relative bg-linear-to-br from-cardBg via-mutedGrey/50 to-cardBg p-4 sm:p-6 rounded-3xl border border-classicGold/20 shadow-2xl hover:shadow-classicGold/10 transition-all duration-500 group">
+                <div className="relative aspect-4/5 overflow-hidden rounded-2xl border-2 border-classicGold/30 group-hover:border-classicGold/60 transition-colors duration-300">
                   <Image
                     className="transition-transform duration-500 scale-150 group-hover:scale-[1.52]"
                     alt="Jobayer Ahmed - MERN Stack Developer"
                     src="/assets/jobayer.jpg"
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 480px"
                     style={{
                       objectFit: "cover",
                       objectPosition: "center",
-                      // filter: "brightness(1.05) contrast(1.1) saturate(1.1)",
                     }}
                   />
                   {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-richBlack/20 via-transparent to-transparent opacity-60"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-richBlack/20 via-transparent to-transparent opacity-60"></div>
                 </div>
 
                 {/* Floating badge */}
-                <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-classicGold to-yellow-500 text-richBlack px-4 py-2 rounded-full font-semibold text-sm shadow-lg transform rotate-12 hover:rotate-0 transition-transform duration-300">
+                <div className="absolute -bottom-4 -right-4 bg-linear-to-r from-classicGold to-yellow-500 text-richBlack px-4 py-2 rounded-full font-semibold text-sm shadow-lg transform rotate-12 hover:rotate-0 transition-transform duration-300">
                   Available for Work
                 </div>
               </div>

@@ -15,7 +15,7 @@ const CommonLayout = ({ children }: { children: React.ReactNode }) => {
         />
       </div>
       {/* main content above background */}
-      <main className="relative z-10 min-h-screen bg-transparent text-lightGrey">
+      <main className="relative z-10 min-h-screen bg-transparent text-lightGrey overflow-x-hidden">
         {children}
 
         <Footer />
