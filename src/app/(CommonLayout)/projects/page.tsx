@@ -97,7 +97,7 @@ const Projects = () => {
   }
 
   return (
-    <div className="min-h-screen px-6 py-12">
+    <div className="min-h-screen px-6 pt-16 pb-12 md:py-12">
       {/* Header */}
       <div className="mb-8">
        <p className="py-4 flex gap-2">

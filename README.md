@@ -34,10 +34,13 @@ A production-ready personal portfolio website that showcases professional work, 
 **Key capabilities:**
 - Dynamic project showcase fetched from MongoDB
 - Full-text and technology-based project filtering
-- Responsive design with mobile bottom-nav and desktop side-nav
+- Floating glassmorphic pill navigation on desktop with animated active link tracking (`motion`)
+- Auto-hiding floating island with shadcn/ui Sheet drawer on mobile (slides out on scroll-down, reveals on scroll-up)
+- Site-wide persistent navigation across home and sub-pages (`/projects`)
+- Anti-flicker scroll lock ensuring smooth transitions between sections without intermediate highlight jumping
 - Contact form with client-side validation (React Hook Form + Zod)
-- Animated sections using Framer Motion (`motion`)
 - Image carousel on project detail pages (Embla Carousel)
+- Reusable navigation components (`BackButton`, `Loading` spinner)
 
 ---
 
@@ -80,8 +83,8 @@ next-portfolio/
 │
 ├── src/
 │   ├── app/
-│   │   ├── (CommonLayout)/             # Route group — shared layout (background + footer)
-│   │   │   ├── layout.tsx              # CommonLayout: background image + Footer wrapper
+│   │   ├── (CommonLayout)/             # Route group — shared layout (background + navbar + footer)
+│   │   │   ├── layout.tsx              # CommonLayout: background image + site-wide floating Navbar + Footer
 │   │   │   ├── (home)/
 │   │   │   │   └── page.tsx            # Home page — all sections assembled
 │   │   │   └── projects/
@@ -111,7 +114,7 @@ next-portfolio/
 │   │   │   └── ContactMe.tsx          # Contact form + social info panel
 │   │   │
 │   │   ├── shared/                     # Reusable components across pages
-│   │   │   ├── Navbar.tsx              # Scroll-aware nav (desktop: side | mobile: bottom)
+│   │   │   ├── Navbar.tsx              # Site-wide floating nav (desktop: glassmorphic pill | mobile: auto-hiding island with Sheet)
 │   │   │   ├── Footer.tsx              # Site footer
 │   │   │   ├── ProjectCard.tsx         # Card used in project listings
 │   │   │   ├── FilterPanel.tsx         # Search, technology filter, sort, view toggle
@@ -119,7 +122,7 @@ next-portfolio/
 │   │   │   ├── TechnologyBadge.tsx     # Pill badge for tech tags
 │   │   │   ├── Loading.tsx             # Full-area spinner component
 │   │   │   └── butttons/
-│   │   │       ├── BackButton.tsx      # Browser back navigation button
+│   │   │       ├── BackButton.tsx      # Reusable back navigation button (router.back)
 │   │   │       ├── navButton/
 │   │   │       │   ├── NavButton.tsx   # Icon + label nav pill button
 │   │   │       │   └── navButton.css   # NavButton specific styles

@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+html {
+  scroll-behavior: smooth;
+}
+
  @theme{
    --color-richBlack: #0D0D0D;
    --color-classicGold: #D4AF37; 

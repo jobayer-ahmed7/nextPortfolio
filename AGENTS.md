@@ -24,8 +24,8 @@ Understand these directories before touching any file:
 ```
 src/
 ├── app/
-│   ├── (CommonLayout)/         ← Route group: shared background + footer
-│   │   ├── layout.tsx          ← READS: wraps children in background image + <Footer>
+│   ├── (CommonLayout)/         ← Route group: shared background + site-wide navbar + footer
+│   │   ├── layout.tsx          ← READS: wraps children in background image + <Navbar> + <Footer>
 │   │   ├── (home)/page.tsx     ← Home page; assembles all section components
 │   │   └── projects/
 │   │       ├── page.tsx        ← /projects list: filter + sort + grid/list view
@@ -40,8 +40,8 @@ src/
 │   └── robots.ts              ← robots.txt (blocks /api/)
 ├── components/
 │   ├── home/                   ← One component per home section (HeroSection, AboutMe, Skills, etc.)
-│   ├── shared/                 ← Reusable: Navbar, Footer, ProjectCard, FilterPanel, etc.
-│   └── ui/                     ← shadcn/ui primitives — DO NOT edit manually
+│   ├── shared/                 ← Reusable: Navbar, Footer, BackButton, Loading, ProjectCard, FilterPanel, etc.
+│   └── ui/                     ← shadcn/ui primitives (button, card, sheet, etc.) — DO NOT edit manually
 ├── hooks/
 │   └── use-mobile.ts           ← Returns true when viewport < 768px
 ├── lib/
@@ -149,12 +149,11 @@ Files in `src/components/ui/` are **auto-generated** by the shadcn CLI. Do not e
 
 ## 7. Navigation Architecture
 
-The Navbar (`src/components/shared/Navbar.tsx`) works purely via **anchor-based smooth scroll**:
-- Desktop: fixed right-side vertical pill nav
-- Mobile: fixed bottom horizontal pill nav
-- Active section is detected via `IntersectionObserver`-style scroll handler
-- Links scroll to `<section id="home|about|skills|projects|experience|contact">` elements
-- This is **not** a router-based nav for the home page. The only real router links are `/projects` and `/projects/:id`.
+The Navbar (`src/components/shared/Navbar.tsx`) is rendered site-wide in `src/app/(CommonLayout)/layout.tsx`:
+- **Desktop (`md:` and above)**: Top-centered floating glassmorphic pill nav (`fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-50`). Features smooth spring-animated active indicator pill (`layoutId="activeNavBackground"` via `motion`) styled in Brand Gold (`classicGold`).
+- **Mobile (`< md`)**: Floating island pinned at `fixed top-2 inset-x-3 sm:inset-x-4 z-50`. Includes smart auto-hide on scroll-down (`-translate-y-24`) and reveal on scroll-up, staying pinned near page top (`scrollY < 50`) and while open. Opens a shadcn/ui `Sheet` drawer from the right.
+- **Scroll Tracking & Lock Engine**: Real-time scroll listener computes viewport positions for sections (`home`, `about`, `skills`, `projects`, `experience`, `contact`). Programmatic clicks trigger a scroll lock (`isProgrammaticScrollRef = true`) released on `scrollend` / timeout fallback to prevent intermediate highlight jitter/flickering.
+- **Cross-Page Routing**: When on the home page (`/`), links smooth-scroll directly to `#id`. When on sub-pages (e.g., `/projects`, `/projects/:id`), links seamlessly navigate to `/#id`. Sub-pages contain top padding buffers (`pt-16 md:py-12`) so content/back buttons never render behind the island.
 
 ---
 
@@ -181,7 +180,9 @@ The Navbar (`src/components/shared/Navbar.tsx`) works purely via **anchor-based 
 ### Add a new home section
 1. Create `src/components/home/YourSection.tsx` as a client component.
 2. Add `<section id="your-section"><YourSection /></section>` to `src/app/(CommonLayout)/(home)/page.tsx`.
-3. Add a nav entry `{ id: "your-section", icon: YourIcon, label: "Label" }` in `src/components/shared/Navbar.tsx`.
+3. In `src/components/shared/Navbar.tsx`:
+   - Add `{ id: "your-section", icon: YourIcon, label: "Label" }` to `navLinks`.
+   - Add `"your-section"` to the `sectionIds` array in `handleScroll` to ensure scroll position tracking.
 
 ### Add a new API route
 1. Create `src/app/api/<resource>/route.ts`.

@@ -1,13 +1,13 @@
 import Image from "next/image";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
-import { Download, ScanEye } from "lucide-react";
+import { Send } from "lucide-react";
 import { TypeAnimation } from "react-type-animation";
 import CvButton from "../shared/butttons/cvButton/CvButton";
 
 const HeroSection = () => {
   return (
-    <div className="w-full relative h-[90vh] ">
+    <div className="w-full relative h-[80vh] ">
       <Image
         src="/assets/hero-dark.jpg"
         alt="Hero background"
@@ -16,7 +16,7 @@ const HeroSection = () => {
         className="object-cover -z-10 brightness-[0.3]"
       />
       {/* Content container */}
-      <div className=" h-full container mx-auto relative z-10  grid grid-cols-1 lg:grid-cols-2   text-offWhite items-center  ">
+      <div className=" h-full container mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 text-offWhite items-center pt-16  ">
         {/* Text Section */}
         <div className="flex flex-col items-center justify-center text-center px-2">
           <div className=" mb-4">
@@ -41,22 +41,14 @@ const HeroSection = () => {
               />
             </div>
           </div>
-          <p className=" w-2/3 mb-5 text-lightGrey">
+          <p className=" w-2/3  text-lightGrey">
             I am a Bangladesh based web developer focused on crafting clean &
             user‑friendly experiences, I am passionate about building excellent
             software that improves the lives of those around me.
           </p>
-          <div className="flex gap-10 my-10 flex-col lg:flex-row  ">
-            <a href="https://drive.google.com/file/d/1-BI9pLofpFi5FxPgISnCcmtwnHvxPLCG/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
-              <CvButton className=" " label="Preview CV" icon={ScanEye} />
+            <a className="my-8" href="#contact">
+              <CvButton className=" " label="Contact Me" icon={Send} />
             </a>
-            <a
-              href="/resume.pdf"
-              download="Full Stack Developer Resume of Jobayer Ahmed"
-            >
-              <CvButton className="" label="Download CV" icon={Download} />
-            </a>
-          </div>
           <div className="flex text-3xl sm:text-4xl gap-4 sm:gap-6 text-lightGrey">
             <a
               className="hover:scale-125 duration-300 "

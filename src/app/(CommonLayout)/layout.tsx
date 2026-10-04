@@ -1,4 +1,5 @@
 import Footer from "@/components/shared/Footer";
+import Navbar from "@/components/shared/Navbar";
 import Image from "next/image";
 
 const CommonLayout = ({ children }: { children: React.ReactNode }) => {
@@ -14,6 +15,9 @@ const CommonLayout = ({ children }: { children: React.ReactNode }) => {
           style={{ objectFit: "cover" }}
         />
       </div>
+      {/* Site-wide floating navbar */}
+      <Navbar />
+
       {/* main content above background */}
       <main className="relative z-10 min-h-screen bg-transparent text-lightGrey overflow-x-hidden">
         {children}

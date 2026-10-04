@@ -7,7 +7,7 @@ interface NavButtonProps {
 const CvButton = ({icon: Icon, label, className=''}:NavButtonProps) => {
   return (
     <button className={`${className}  relative cursor-pointer py-4 px-8 text-center font-barlow inline-flex justify-center text-base uppercase text-offWhite rounded-lg border-solid transition-transform duration-300 ease-in-out group outline-offset-4 overflow-hidden`}>
-      <span className="relative z-20 flex items-center gap-4">{label } <Icon/></span>
+      <span className="relative z-20 flex items-center gap-4"><Icon/>{label } </span>
 
       <span className="absolute left-[-75%] top-0 h-full w-[50%] bg-classicGold/15 rotate-12 z-10 blur-lg group-hover:left-[125%] transition-all duration-1000 ease-in-out"></span>
 

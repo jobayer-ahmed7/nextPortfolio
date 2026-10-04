@@ -1,7 +1,6 @@
 "use client";
 
 import AboutMe from "@/components/home/AboutMe";
-import Navbar from "@/components/shared/Navbar";
 import HeroSection from "@/components/home/HeroSection";
 import Skills from "@/components/home/Skills";
 import ContactMe from "@/components/home/ContactMe";
@@ -11,8 +10,6 @@ import FeaturedProjects from "@/components/home/FeaturedProjects";
 const HomePage = () => {
   return (
     <div className="text-lightGrey mb-16 overflow-x-hidden">
-      <Navbar /> 
-
       {/* Hero Section with its own background */}
       <section id="home">
         <HeroSection />

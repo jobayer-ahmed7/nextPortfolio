@@ -188,7 +188,7 @@ const ContactMe = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-classicGold to-yellow-600 hover:from-yellow-600 hover:to-classicGold text-richBlack px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none shadow-lg hover:shadow-xl hover:shadow-classicGold/20"
+                  className="w-full hover:cursor-pointer bg-linear-to-r from-classicGold to-yellow-600 hover:from-yellow-600 hover:to-classicGold text-richBlack px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none shadow-lg hover:shadow-xl hover:shadow-classicGold/20"
                 >
                   {isSubmitting ? (
                     <div className="flex items-center justify-center">
