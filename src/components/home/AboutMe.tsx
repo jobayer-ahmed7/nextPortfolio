@@ -1,28 +1,31 @@
 import Image from "next/image";
-import { FaCode, FaHeart, FaLaptopCode, FaRocket } from "react-icons/fa";
+import { FaChartLine, FaMobileAlt, FaRocket, FaStore } from "react-icons/fa";
 import SectionHeading from "../shared/SectionHeading";
 
 const AboutMe = () => {
   const highlights = [
     {
-      icon: <FaCode className="text-2xl" />,
-      title: "Full-Stack Development",
-      description: "MERN Stack expertise with modern JavaScript frameworks",
+      icon: <FaStore className="text-2xl" />,
+      title: "Custom Online Stores",
+      description:
+        "Full-stack e-commerce sites with secure checkout and an easy admin dashboard.",
     },
     {
-      icon: <FaLaptopCode className="text-2xl" />,
-      title: "Responsive Design",
-      description: "Creating seamless experiences across all devices",
+      icon: <FaMobileAlt className="text-2xl" />,
+      title: "Mobile-First Design",
+      description:
+        "Stores that look and work great on the phones most customers shop from.",
     },
     {
       icon: <FaRocket className="text-2xl" />,
-      title: "Performance Focused",
-      description: "Optimized applications with clean, scalable code",
+      title: "Fast Loading Pages",
+      description: "Quick pages mean fewer visitors leave before they buy.",
     },
     {
-      icon: <FaHeart className="text-2xl" />,
-      title: "Passionate Learner",
-      description: "Always exploring new technologies and best practices",
+      icon: <FaChartLine className="text-2xl" />,
+      title: "Real E-commerce Experience",
+      description:
+        "Product research, sales strategy, and my own live store, not just code.",
     },
   ];
 
@@ -33,36 +36,38 @@ const AboutMe = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
-          <div className="flex flex-col justify-center order-2 lg:order-1 space-y-8 ">
+          <div className="flex flex-col justify-center order-2 lg:order-1 space-y-8 p-2">
             <div className=" bg-cardBg/50 backdrop-blur-none rounded-2xl p-8 border border-mutedGrey/30 shadow-xl">
               <div className="mb-6">
                 <h3 className="text-3xl font-bold text-classicGold mb-4">
-                  Full Stack Developer
+                  E-commerce Developer Who Understands Sales
                 </h3>
                 <div className="w-14 h-1 bg-linear-to-r from-classicGold to-yellow-500 rounded-full mb-6"></div>
               </div>
 
               <p className="text-lightGrey leading-relaxed text-lg mb-6">
-                I am passionate about creating exceptional web experiences that
-                combine
+                I build{" "}
                 <span className="text-classicGold font-semibold">
-                  {" "}
-                  beautiful design
+                  fast, easy-to-manage online stores
                 </span>{" "}
-                with
+                that help businesses{" "}
                 <span className="text-classicGold font-semibold">
-                  {" "}
-                  robust functionality
+                  get more orders
                 </span>
-                . Specializing in the MERN stack and Next.js, I build scalable
-                applications that solve real-world problems.
+                . I work with Next.js and the MERN stack, and I also run my own
+                e-commerce business, so I design every page with one question in
+                mind:{" "}
+                <span className="text-classicGold font-semibold">
+                  will this make someone buy?
+                </span>
               </p>
 
               <p className="text-lightGrey/80 leading-relaxed">
-                My journey in web development is driven by curiosity and a
-                commitment to continuous learning. I thrive on tackling
-                challenging projects that push the boundaries of what&apos;s
-                possible on the web.
+                Before writing code for clients, I worked in e-commerce product
+                research, pricing, and sales strategy. I know what makes a
+                product page convert, how to set up a store you can manage
+                without a developer, and how to get it ready for Meta Ads
+                traffic. You get a developer who understands your business.
               </p>
             </div>
 
@@ -97,7 +102,7 @@ const AboutMe = () => {
                 <div className="relative aspect-4/5 overflow-hidden rounded-2xl border-2 border-classicGold/30 group-hover:border-classicGold/60 transition-colors duration-300">
                   <Image
                     className="transition-transform duration-500 scale-150 group-hover:scale-[1.52]"
-                    alt="Jobayer Ahmed - MERN Stack Developer"
+                    alt="Jobayer Ahmed - E-commerce Developer"
                     src="/assets/jobayer.jpg"
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 480px"
