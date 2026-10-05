@@ -127,11 +127,11 @@ const Skills = () => {
             {/* Category Header */}
             <div className="mb-8">
               <h3 className="text-2xl font-bold text-white mb-2">{category.title}</h3>
-              <div className="h-1 w-20 bg-gradient-to-r from-classicGold to-transparent rounded-full"></div>
+              <div className="h-1 w-20 bg-linear-to-r from-classicGold to-transparent rounded-full"></div>
             </div>
             
             {/* Skills Grid */}
-            <div className={`relative p-6 rounded-2xl bg-gradient-to-br ${category.gradient} backdrop-blur-sm border border-mutedGrey/20`}>
+            <div className={`relative p-6 rounded-2xl bg-linear-to-br ${category.gradient} backdrop-blur-sm border border-mutedGrey/20`}>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-6">
                 {category.skills.map((skill, skillIndex) => (
                   <div
@@ -151,7 +151,7 @@ const Skills = () => {
                     </div>
                     
                     {/* Subtle Hover Glow Effect */}
-                    <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-classicGold/0 via-classicGold/3 to-classicGold/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+                    <div className="absolute inset-0 rounded-xl bg-linear-to-r from-classicGold/0 via-classicGold/3 to-classicGold/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
                   </div>
                 ))}
               </div>

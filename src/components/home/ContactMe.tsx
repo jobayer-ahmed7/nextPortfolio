@@ -77,7 +77,7 @@ const ContactMe = () => {
   };
 
   return (
-    <div className="min-h-[80vh] container mx-auto py-16 px-4 ">
+    <div className="min-h-[80vh] container mx-auto px-4 ">
       <SectionHeading title="CONTACT" />
 
       {/* Main content */}

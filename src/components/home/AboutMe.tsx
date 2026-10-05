@@ -27,7 +27,7 @@ const AboutMe = () => {
   ];
 
   return (
-    <div className="min-h-[90vh] py-16 px-4 overflow-x-hidden">
+    <div className="min-h-[90vh]  px-4 overflow-x-hidden">
       <div className="container mx-auto">
         <SectionHeading title="ABOUT ME" />
 

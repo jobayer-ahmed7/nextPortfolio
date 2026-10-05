@@ -48,7 +48,7 @@ const FeaturedProjects = () => {
 
   return (
     <div
-      className={`px-6 py-12 w-full transition-all duration-500 ease-in-out ${
+      className={`px-6 w-full transition-all duration-500 ease-in-out ${
         showMore ? "min-h-[140vh]" : "min-h-[70vh]"
       }`}
     >
