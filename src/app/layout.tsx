@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Jobayer Ahmed",
-  description: "Details of my professional life",
+  description: "E-commerce Developer Who Understands Sales",
 };
 
 

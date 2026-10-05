@@ -2,6 +2,7 @@
 
 import AboutMe from "@/components/home/AboutMe";
 import HeroSection from "@/components/home/HeroSection";
+import Services from "@/components/home/Services";
 import Skills from "@/components/home/Skills";
 import ContactMe from "@/components/home/ContactMe";
 import Experience from "@/components/home/Experience";
@@ -13,6 +14,13 @@ const HomePage = () => {
       {/* Hero Section with its own background */}
       <section id="home">
         <HeroSection />
+      </section>
+
+      <section
+        id="services"
+        className="min-h-[85vh] flex justify-center items-center"
+      >
+        <Services />
       </section>
 
       <section

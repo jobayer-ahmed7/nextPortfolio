@@ -12,6 +12,7 @@ import {
   Briefcase,
   Send,
   Menu,
+  Wrench,
   LucideIcon,
   ArrowUpRight,
 } from "lucide-react";
@@ -33,6 +34,7 @@ interface NavItem {
 
 const navLinks: NavItem[] = [
   { id: "home", label: "Home", icon: Home },
+  { id: "services", label: "Services", icon: Wrench },
   { id: "about", label: "About", icon: CircleUser },
   { id: "skills", label: "Skills", icon: Brain },
   { id: "projects", label: "Projects", icon: BriefcaseBusiness },
@@ -128,6 +130,7 @@ const Navbar = () => {
       // 3. Check section positions from bottom to top
       const sectionIds = [
         "home",
+        "services",
         "about",
         "skills",
         "projects",
