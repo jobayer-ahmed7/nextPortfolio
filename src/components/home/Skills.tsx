@@ -80,7 +80,7 @@ const MarqueeStrip = ({
   const animateX = direction === "left" ? "-33.333%" : "0%";
 
   return (
-    <div className="relative w-full overflow-hidden py-2 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+    <div className="relative w-full overflow-hidden py-2 mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
       <motion.div
         className="flex gap-4 sm:gap-6 w-max"
         initial={{ x: initialX }}
@@ -99,12 +99,13 @@ const MarqueeStrip = ({
   );
 };
 
+
+
 const Skills = () => {
   return (
     <div className="w-full max-w-7xl mx-auto px-4 overflow-hidden">
-      <SectionHeading title="SKILLS" />
 
-      <div className="flex flex-col gap-6 sm:gap-8 mt-4">
+      <div className={`flex flex-col gap-6 sm:gap-8  "mt-2"}`}>
         {/* Strip 1: Animates towards the left */}
         <MarqueeStrip items={skills} direction="left" duration={40} />
 

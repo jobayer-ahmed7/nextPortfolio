@@ -7,7 +7,6 @@ import { motion } from "motion/react";
 import {
   Home,
   CircleUser,
-  Brain,
   BriefcaseBusiness,
   Briefcase,
   Send,
@@ -34,9 +33,8 @@ interface NavItem {
 
 const navLinks: NavItem[] = [
   { id: "home", label: "Home", icon: Home },
-  { id: "services", label: "Services", icon: Wrench },
   { id: "about", label: "About", icon: CircleUser },
-  { id: "skills", label: "Skills", icon: Brain },
+  { id: "services", label: "Services", icon: Wrench },
   { id: "projects", label: "Projects", icon: BriefcaseBusiness },
   { id: "experience", label: "Experience", icon: Briefcase },
   { id: "contact", label: "Contact", icon: Send },
@@ -130,9 +128,8 @@ const Navbar = () => {
       // 3. Check section positions from bottom to top
       const sectionIds = [
         "home",
-        "services",
         "about",
-        "skills",
+        "services",
         "projects",
         "experience",
         "contact",
@@ -289,7 +286,7 @@ const Navbar = () => {
             </SheetTrigger>
             <SheetContent
               side="right"
-              className="w-[280px] sm:w-[320px] bg-richBlack/95 backdrop-blur-2xl border-l border-white/10 text-offWhite flex flex-col justify-between p-6"
+              className="w-70 sm:w-[320px] bg-richBlack/95 backdrop-blur-2xl border-l border-white/10 text-offWhite flex flex-col justify-between p-6"
             >
               <div>
                 <SheetHeader className="text-left pb-4 border-b border-white/10">

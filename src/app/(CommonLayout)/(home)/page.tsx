@@ -3,7 +3,6 @@
 import AboutMe from "@/components/home/AboutMe";
 import HeroSection from "@/components/home/HeroSection";
 import Services from "@/components/home/Services";
-import Skills from "@/components/home/Skills";
 import ContactMe from "@/components/home/ContactMe";
 import Experience from "@/components/home/Experience";
 import FeaturedProjects from "@/components/home/FeaturedProjects";
@@ -11,49 +10,41 @@ import FeaturedProjects from "@/components/home/FeaturedProjects";
 const HomePage = () => {
   return (
     <div className="text-lightGrey mb-16 overflow-x-hidden">
+
       {/* Hero Section with its own background */}
+
       <section id="home">
         <HeroSection />
       </section>
 
-      <section
-        id="services"
-        className="min-h-[85vh] flex justify-center items-center"
-      >
-        <Services />
-      </section>
+      {/* About Section */}
 
-      <section
-        id="about"
-        className="  min-h-[90vh]"
-      >
+      <section id="about">
         <AboutMe />
       </section>
 
-      <section
-        id="skills"
-        className="min-h-[85vh] flex justify-center items-center"
-      >
-        <Skills />
+      {/* Services Section */}
+
+      <section id="services">
+        <Services />
       </section>
 
-      <section
-        id="projects"
-        className="min-h-[85vh] flex justify-center items-center"
-      >
-      <FeaturedProjects />
-      </section>
-      <section
-        id="experience"
-        className="min-h-[85vh] flex justify-center items-center"
-      >
-      <Experience />
+
+      {/* Projects Section */}
+
+      <section id="projects">
+        <FeaturedProjects />
       </section>
 
-      <section
-        id="contact"
-        className="min-h-[85vh] flex justify-center items-center"
-      >
+      {/* Experience Section */}
+
+      <section id="experience">
+        <Experience />
+      </section>
+
+      {/* Contact Section */}
+
+      <section id="contact">
         <ContactMe />
       </section>
     </div>
@@ -61,6 +52,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
-
-

@@ -12,6 +12,7 @@ import {
 import { Send } from "lucide-react";
 import SectionHeading from "@/components/shared/SectionHeading";
 import PrimaryButton from "@/components/shared/butttons/PrimaryButton";
+import Skills from "./Skills";
 
 interface Service {
   icon: React.ElementType;
@@ -87,7 +88,7 @@ const cardVariants = {
       duration: 0.6,
       ease: "easeOut" as const,
     },
-  }),
+  }), 
 };
 
 const Services = () => {
@@ -99,7 +100,7 @@ const Services = () => {
       <SectionHeading title="SERVICES" />
 
       <p className="text-center text-lightGrey/70 max-w-2xl mx-auto -mt-4 mb-12 text-base leading-relaxed">
-        Every project is scoped, priced, and delivered clearly — so you know
+        Every project is scoped, priced, and delivered clearly - so you know
         exactly what you&apos;re getting before we start.
       </p>
 
@@ -189,6 +190,19 @@ const Services = () => {
             </motion.div>
           );
         })}
+      </div>
+      {/* Tech Stack / Skills Strip Section */}
+      <div className="mt-20 w-full overflow-hidden">
+        <div className="text-center mb-8">
+          <h3 className="text-xl sm:text-2xl font-bold text-offWhite tracking-wide">
+            Technologies I Work With
+          </h3>
+          <div className="h-0.5 w-16 bg-linear-to-r from-transparent via-classicGold to-transparent mx-auto my-2.5 rounded-full" />
+          <p className="text-lightGrey/70 text-sm sm:text-base max-w-xl mx-auto">
+            Your projects are built with modern, reliable, and high-performance tools and frameworks.
+          </p>
+        </div>
+        <Skills />
       </div>
     </div>
   );
