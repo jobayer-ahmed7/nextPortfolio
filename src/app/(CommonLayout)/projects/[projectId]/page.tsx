@@ -14,12 +14,12 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Link from "next/link";
-import CvButton from "@/components/shared/butttons/cvButton/CvButton";
 import Image from "next/image";
 import { fetchProjectById } from "@/lib/api";
 import { IProject } from "@/models/Projects";
 import Loading from "@/components/shared/Loading";
 import BackButton from "@/components/shared/butttons/BackButton";
+import PrimaryButton from "@/components/shared/butttons/PrimaryButton";
 
 const ProjectDetailsPage = () => {
   const { projectId } = useParams();
@@ -91,21 +91,21 @@ const ProjectDetailsPage = () => {
               <h2 className="text-4xl  font-semibold">{project?.title}</h2>
               <p className="flex flex-wrap gap-3">
                 <Link target="_blank" href={project?.liveLink}>
-                  <CvButton
+                  <PrimaryButton
                     className="px-3!"
                     icon={GoLinkExternal}
                     label="Live Link"
                   />
                 </Link>
                 <Link target="_blank" href={project?.frontendCode}>
-                  <CvButton
+                  <PrimaryButton
                     className="px-3!"
                     icon={FiGithub}
                     label="Frontend Code"
                   />
                 </Link>
                 <Link target="_blank" href={project?.backendCode}>
-                  <CvButton
+                  <PrimaryButton
                     className="px-3!"
                     icon={FiGithub}
                     label="Backend Code"

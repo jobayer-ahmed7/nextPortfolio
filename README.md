@@ -126,8 +126,8 @@ next-portfolio/
 │   │   │       ├── navButton/
 │   │   │       │   ├── NavButton.tsx   # Icon + label nav pill button
 │   │   │       │   └── navButton.css   # NavButton specific styles
-│   │   │       └── cvButton/
-│   │   │           └── CvButton.tsx    # Gold-styled CTA / download button
+│   │   │       └── PrimaryButton/
+│   │   │           └── PrimaryButton.tsx    # Gold-styled CTA / download button
 │   │   │
 │   │   └── ui/                         # shadcn/ui primitives (auto-generated, do not edit manually)
 │   │       ├── button.tsx
