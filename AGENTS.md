@@ -77,6 +77,12 @@ Files in `src/components/ui/` are **auto-generated** by the shadcn CLI. Do not e
 - Custom design tokens are defined in `src/app/globals.css` under `@theme`. Use `text-classicGold`, `bg-richBlack`, etc.
 - Do not add inline styles (`style={{...}}`) except where absolutely necessary (e.g., `objectFit` on `<Image>`).
 - The `cn()` helper from `src/lib/utils.ts` must be used for conditional class merging.
+- **Spacing architecture — single source of truth:**
+  - `container mx-auto` and horizontal padding (`px-4 sm:px-6 md:px-8`) are applied **once** on the page-level wrapper (`page.tsx`). Section components must **never** add their own `container`, `mx-auto`, or `px-*`.
+  - Vertical rhythm between sections is set on the `<section>` tag in `page.tsx` using `py-16 md:py-20`. Components must not use `min-h-[*vh]` as a spacing mechanism.
+  - Sub-pages (`/projects`, `/projects/:id`) use `pt-20 pb-16` on their root container to clear the fixed navbar.
+  - Card-internal padding (`p-6`, `p-8`) lives inside card/component files and is intentional — do not strip it.
+
 
 ### 3.6 TypeScript
 - Strict mode is **enabled** in `tsconfig.json`. All code must type-check cleanly.
@@ -153,7 +159,7 @@ The Navbar (`src/components/shared/Navbar.tsx`) is rendered site-wide in `src/ap
 - **Desktop (`md:` and above)**: Top-centered floating glassmorphic pill nav (`fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-50`). Features smooth spring-animated active indicator pill (`layoutId="activeNavBackground"` via `motion`) styled in Brand Gold (`classicGold`).
 - **Mobile (`< md`)**: Floating island pinned at `fixed top-2 inset-x-3 sm:inset-x-4 z-50`. Includes smart auto-hide on scroll-down (`-translate-y-24`) and reveal on scroll-up, staying pinned near page top (`scrollY < 50`) and while open. Opens a shadcn/ui `Sheet` drawer from the right.
 - **Scroll Tracking & Lock Engine**: Real-time scroll listener computes viewport positions for sections (`home`, `about`, `skills`, `projects`, `experience`, `contact`). Programmatic clicks trigger a scroll lock (`isProgrammaticScrollRef = true`) released on `scrollend` / timeout fallback to prevent intermediate highlight jitter/flickering.
-- **Cross-Page Routing**: When on the home page (`/`), links smooth-scroll directly to `#id`. When on sub-pages (e.g., `/projects`, `/projects/:id`), links seamlessly navigate to `/#id`. Sub-pages contain top padding buffers (`pt-16 md:py-12`) so content/back buttons never render behind the island.
+- **Cross-Page Routing**: When on the home page (`/`), links smooth-scroll directly to `#id`. When on sub-pages (e.g., `/projects`, `/projects/:id`), links seamlessly navigate to `/#id`. Sub-pages use `pt-20 pb-16` on their root container so content and back buttons never render behind the floating navbar island.
 
 ---
 
@@ -179,7 +185,8 @@ The Navbar (`src/components/shared/Navbar.tsx`) is rendered site-wide in `src/ap
 
 ### Add a new home section
 1. Create `src/components/home/YourSection.tsx` as a client component.
-2. Add `<section id="your-section"><YourSection /></section>` to `src/app/(CommonLayout)/(home)/page.tsx`.
+2. Add `<section id="your-section" className="py-16 md:py-20"><YourSection /></section>` to `src/app/(CommonLayout)/(home)/page.tsx`.
+   - The section component itself must NOT add `container`, `mx-auto`, `px-*`, or `min-h-[*vh]` — the page wrapper handles horizontal layout and the `<section>` tag handles vertical rhythm.
 3. In `src/components/shared/Navbar.tsx`:
    - Add `{ id: "your-section", icon: YourIcon, label: "Label" }` to `navLinks`.
    - Add `"your-section"` to the `sectionIds` array in `handleScroll` to ensure scroll position tracking.
@@ -235,6 +242,9 @@ Edit `@theme {}` block in `src/app/globals.css`. Do not hardcode hex values in c
 - ❌ **Do NOT** bypass TypeScript strict mode with `any` or `@ts-ignore` without a comment explaining why.
 - ❌ **Do NOT** create new Mongoose connections — always use `connectToDatabase()` from `src/lib/db.ts`.
 - ❌ **Do NOT** leave debug `console.log` statements in committed code.
+- ❌ **Do NOT** add `container`, `mx-auto`, or `px-*` inside section components (`src/components/home/`) — the page wrapper in `page.tsx` already provides these. Doing so doubles the gutter.
+- ❌ **Do NOT** use `min-h-[*vh]` as a vertical spacing or layout mechanism in section components — use `py-16 md:py-20` on the `<section>` tag in `page.tsx` instead.
+- ❌ **Do NOT** use empty `<div>` elements with a fixed height (e.g. `<div className="h-20">`) as spacing hackers — use bottom padding (`pb-*`) on the page wrapper.
 
 ---
 

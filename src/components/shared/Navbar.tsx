@@ -229,7 +229,7 @@ const Navbar = () => {
       <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 hidden md:block">
         <nav
           aria-label="Main Navigation"
-          className="flex items-center gap-1 rounded-full border border-white/10 bg-richBlack/75 backdrop-blur-xl p-1.5 shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] transition-all duration-300"
+          className="flex items-center gap-1 rounded-full border border-classicGold/30 bg-richBlack/75 backdrop-blur-xl p-1.5 shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] transition-all duration-300"
         >
           {navLinks.map(({ id, label }) => {
             const isActive = activeSection === id;
@@ -267,7 +267,7 @@ const Navbar = () => {
           isMobileVisible ? "translate-y-0" : "-translate-y-24"
         )}
       >
-        <div className="flex items-center justify-between px-6 py-1 rounded-full border border-white/10 bg-richBlack/80 backdrop-blur-xl shadow-lg shadow-black/40">
+        <div className="flex items-center justify-between px-6 py-1 rounded-full border border-classicGold/30 bg-richBlack/80 backdrop-blur-xl shadow-lg shadow-black/40">
           <button
             onClick={() => handleNavClick("home")}
             className="text-base font-bold tracking-wider text-offWhite flex items-center gap-0.5 outline-none"

@@ -33,14 +33,14 @@ const services: Service[] = [
     whoFor:
       "Small-to-medium businesses wanting a fast, conversion-focused online store built to sell.",
     includes: [
-      "Custom Next.js storefront",
+      "Custom Next.js or React.js storefront",
       "Product, cart & checkout pages",
       "Secure payment integration",
       "Mobile-first responsive design",
       "Admin dashboard setup",
       "SEO & performance optimisation",
     ],
-    timeline: "2 – 3 weeks",
+    timeline: "About 2 weeks",
     startingFrom: "৳15000",
     featured: true,
   },
@@ -50,14 +50,14 @@ const services: Service[] = [
     whoFor:
       "Freelancers, agencies & local businesses that need a sharp web presence or campaign page — fast.",
     includes: [
-      "Custom Next.js / React page",
+      "Custom Next.js or React.js page",
       "Hero, features & contact sections",
       "Lead-gen form or booking link",
       "Mobile-first design",
       "Basic SEO meta tags",
       "Deployed & live within days",
     ],
-    timeline: "1 – 2 weeks",
+    timeline: "About a week",
     startingFrom: "৳7000",
   },
   {
@@ -96,7 +96,7 @@ const Services = () => {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <div className="w-full px-4 py-8 container mx-auto">
+    <div className="w-full">
       <SectionHeading title="SERVICES" />
 
       <p className="text-center text-lightGrey/70 max-w-2xl mx-auto -mt-4 mb-12 text-base leading-relaxed">

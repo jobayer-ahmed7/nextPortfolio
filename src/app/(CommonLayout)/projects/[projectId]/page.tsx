@@ -57,7 +57,7 @@ const ProjectDetailsPage = () => {
       {!project ? (
         <Loading height={"min-h-screen"} />
       ) : (
-        <div className="container mx-auto p-4 pt-16 ">
+        <div className="container mx-auto px-4 sm:px-6 md:px-8 pt-20 pb-16">
           <p className="py-4 flex gap-2">
             <BackButton/>
           </p>

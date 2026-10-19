@@ -47,11 +47,7 @@ const FeaturedProjects = () => {
 
 
   return (
-    <div
-      className={`px-6 w-full transition-all duration-500 ease-in-out ${
-        showMore ? "min-h-[140vh]" : "min-h-[70vh]"
-      }`}
-    >
+    <div className="w-full">
       <SectionHeading title="PROJECTS" />
       {/* <Loading /> */}
       {/* Projects Grid */}

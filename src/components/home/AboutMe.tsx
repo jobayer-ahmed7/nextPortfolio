@@ -30,8 +30,8 @@ const AboutMe = () => {
   ];
 
   return (
-    <div className="min-h-[90vh]  px-4 overflow-x-hidden">
-      <div className="container mx-auto">
+    <div className="w-full">
+      <div>
         <SectionHeading title="ABOUT ME" />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">

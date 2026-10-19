@@ -5,17 +5,21 @@ html {
   scroll-behavior: smooth;
 }
 
- @theme{
-   --color-richBlack: #0D0D0D;
-   --color-classicGold: #D4AF37; 
-   --color-lightGrey: #CCCCCC;
-   --color-darkGrey: #444444;
-   --color-mutedGrey:#2A2A2A;
-   --color-offWhite:#F5F5F5;
-   --color-cardBg: #1A1A1A;
-   
- 
- }
+  @theme {
+    --color-richBlack: #0D0D0D;
+    --color-classicGold: #D4AF37; 
+    --color-lightGrey: #CCCCCC;
+    --color-darkGrey: #444444;
+    --color-mutedGrey: #2A2A2A;
+    --color-offWhite: #F5F5F5;
+    --color-cardBg: #1A1A1A;
+
+    /* Spacing System */
+    --spacing-section-y: 5rem;
+    --spacing-section-y-sm: 3rem;
+    --spacing-content-max: 80rem;
+    --spacing-navbar-offset: 5rem;
+  }
 
 /* Custom animations for project section */
 @keyframes fade-in {

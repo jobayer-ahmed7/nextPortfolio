@@ -103,9 +103,9 @@ const MarqueeStrip = ({
 
 const Skills = () => {
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 overflow-hidden">
+    <div className="w-full overflow-hidden">
 
-      <div className={`flex flex-col gap-6 sm:gap-8  "mt-2"}`}>
+      <div className="flex flex-col gap-6 sm:gap-8 mt-2">
         {/* Strip 1: Animates towards the left */}
         <MarqueeStrip items={skills} direction="left" duration={40} />
 

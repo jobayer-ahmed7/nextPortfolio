@@ -9,44 +9,47 @@ import FeaturedProjects from "@/components/home/FeaturedProjects";
 
 const HomePage = () => {
   return (
-    <div className="text-lightGrey mb-16 overflow-x-hidden">
+    <div className="text-lightGrey overflow-x-hidden">
 
-      {/* Hero Section with its own background */}
+      {/* Hero Section with its own background (full-bleed) */}
 
       <section id="home">
         <HeroSection />
       </section>
 
-      {/* About Section */}
+      {/* Main Content Sections with standard container padding */}
+      <div className="container mx-auto px-4 sm:px-6 md:px-8">
 
-      <section id="about">
-        <AboutMe />
-      </section>
+        {/* About Section */}
 
-      {/* Services Section */}
+        <section id="about" className="py-16 md:py-20">
+          <AboutMe />
+        </section>
 
-      <section id="services">
-        <Services />
-      </section>
+        {/* Services Section */}
 
+        <section id="services" className="py-16 md:py-20">
+          <Services />
+        </section>
 
-      {/* Projects Section */}
+        {/* Projects Section */}
 
-      <section id="projects">
-        <FeaturedProjects />
-      </section>
+        <section id="projects" className="py-16 md:py-20">
+          <FeaturedProjects />
+        </section>
 
-      {/* Experience Section */}
+        {/* Experience Section */}
 
-      <section id="experience">
-        <Experience />
-      </section>
+        <section id="experience" className="py-16 md:py-20">
+          <Experience />
+        </section>
 
-      {/* Contact Section */}
+        {/* Contact Section */}
 
-      <section id="contact">
-        <ContactMe />
-      </section>
+        <section id="contact" className="py-16 md:py-20">
+          <ContactMe />
+        </section>
+      </div>
     </div>
   );
 };
