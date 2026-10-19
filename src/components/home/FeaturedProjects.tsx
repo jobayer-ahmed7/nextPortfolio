@@ -47,11 +47,7 @@ const FeaturedProjects = () => {
 
 
   return (
-    <div
-      className={`px-6 py-12 w-full transition-all duration-500 ease-in-out ${
-        showMore ? "min-h-[140vh]" : "min-h-[70vh]"
-      }`}
-    >
+    <div className="w-full">
       <SectionHeading title="PROJECTS" />
       {/* <Loading /> */}
       {/* Projects Grid */}
@@ -82,7 +78,7 @@ const FeaturedProjects = () => {
           <button
             onClick={handleToggleProjects}
             disabled={isTransitioning}
-            className={`flex items-center justify-center bg-linear-to-t from-classicGold/50 to-richBlack text-xl cursor-pointer w-1/3 border border-darkGrey rounded-full${
+            className={`flex items-center justify-center bg-linear-to-t from-classicGold/50 to-richBlack text-base sm:text-xl cursor-pointer w-full max-w-xs sm:max-w-sm py-2.5 px-6 border border-darkGrey rounded-full transition-transform ${
               isTransitioning ? "scale-95" : ""
             }`}
           >

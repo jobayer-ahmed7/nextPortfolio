@@ -1,61 +1,57 @@
 "use client";
 
 import AboutMe from "@/components/home/AboutMe";
-import Navbar from "@/components/shared/Navbar";
 import HeroSection from "@/components/home/HeroSection";
-import Skills from "@/components/home/Skills";
+import Services from "@/components/home/Services";
 import ContactMe from "@/components/home/ContactMe";
 import Experience from "@/components/home/Experience";
 import FeaturedProjects from "@/components/home/FeaturedProjects";
 
 const HomePage = () => {
   return (
-    <div className="text-lightGrey mb-16 ">
-      <Navbar /> 
+    <div className="text-lightGrey overflow-x-hidden">
 
-      {/* Hero Section with its own background */}
+      {/* Hero Section with its own background (full-bleed) */}
+
       <section id="home">
         <HeroSection />
       </section>
 
-      <section
-        id="about"
-        className="  min-h-[90vh]"
-      >
-        <AboutMe />
-      </section>
+      {/* Main Content Sections with standard container padding */}
+      <div className="container mx-auto px-4 sm:px-6 md:px-8">
 
-      <section
-        id="skills"
-        className="min-h-[85vh] flex justify-center items-center"
-      >
-        <Skills />
-      </section>
+        {/* About Section */}
 
-      <section
-        id="projects"
-        className="min-h-[85vh] flex justify-center items-center"
-      >
-      <FeaturedProjects />
-      </section>
-      <section
-        id="experience"
-        className="min-h-[85vh] flex justify-center items-center"
-      >
-      <Experience />
-      </section>
+        <section id="about" className="py-16 md:py-20">
+          <AboutMe />
+        </section>
 
-      <section
-        id="contact"
-        className="min-h-[85vh] flex justify-center items-center"
-      >
-        <ContactMe />
-      </section>
+        {/* Services Section */}
+
+        <section id="services" className="py-16 md:py-20">
+          <Services />
+        </section>
+
+        {/* Projects Section */}
+
+        <section id="projects" className="py-16 md:py-20">
+          <FeaturedProjects />
+        </section>
+
+        {/* Experience Section */}
+
+        <section id="experience" className="py-16 md:py-20">
+          <Experience />
+        </section>
+
+        {/* Contact Section */}
+
+        <section id="contact" className="py-16 md:py-20">
+          <ContactMe />
+        </section>
+      </div>
     </div>
   );
 };
 
 export default HomePage;
-
-
-

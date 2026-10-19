@@ -14,12 +14,12 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Link from "next/link";
-import CvButton from "@/components/shared/butttons/cvButton/CvButton";
 import Image from "next/image";
 import { fetchProjectById } from "@/lib/api";
 import { IProject } from "@/models/Projects";
 import Loading from "@/components/shared/Loading";
 import BackButton from "@/components/shared/butttons/BackButton";
+import PrimaryButton from "@/components/shared/butttons/PrimaryButton";
 
 const ProjectDetailsPage = () => {
   const { projectId } = useParams();
@@ -57,7 +57,7 @@ const ProjectDetailsPage = () => {
       {!project ? (
         <Loading height={"min-h-screen"} />
       ) : (
-        <div className="container mx-auto p-4 ">
+        <div className="container mx-auto px-4 sm:px-6 md:px-8 pt-20 pb-16">
           <p className="py-4 flex gap-2">
             <BackButton/>
           </p>
@@ -89,24 +89,24 @@ const ProjectDetailsPage = () => {
           <div className=" lg:grid lg:grid-cols-12 gap-6 mt-4">
             <div className="col-span-12 lg:flex  space-y-4 justify-between">
               <h2 className="text-4xl  font-semibold">{project?.title}</h2>
-              <p className="flex gap-4">
+              <p className="flex flex-wrap gap-3">
                 <Link target="_blank" href={project?.liveLink}>
-                  <CvButton
-                    className="!px-3"
+                  <PrimaryButton
+                    className="px-3!"
                     icon={GoLinkExternal}
                     label="Live Link"
                   />
                 </Link>
                 <Link target="_blank" href={project?.frontendCode}>
-                  <CvButton
-                    className="!px-3"
+                  <PrimaryButton
+                    className="px-3!"
                     icon={FiGithub}
                     label="Frontend Code"
                   />
                 </Link>
                 <Link target="_blank" href={project?.backendCode}>
-                  <CvButton
-                    className="!px-3"
+                  <PrimaryButton
+                    className="px-3!"
                     icon={FiGithub}
                     label="Backend Code"
                   />

@@ -7,7 +7,7 @@ export async function GET( request: NextRequest,
   : Promise<NextResponse> {
   try {
     const {id} = await params;
-    console.log('received id:', id);
+    // console.log('received id:', id);
 
     if (!id) {
       return NextResponse.json(

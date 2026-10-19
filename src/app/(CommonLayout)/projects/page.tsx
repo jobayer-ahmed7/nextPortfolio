@@ -97,7 +97,7 @@ const Projects = () => {
   }
 
   return (
-    <div className="min-h-screen px-6 py-12">
+    <div className="container mx-auto min-h-screen px-4 sm:px-6 md:px-8 pt-20 pb-16">
       {/* Header */}
       <div className="mb-8">
        <p className="py-4 flex gap-2">
@@ -111,7 +111,7 @@ const Projects = () => {
       </div>
 
       {/* Filters and Controls */}
-      <div className="max-w-7xl mx-auto mb-8">
+      <div className="mb-8">
         <FilterPanel
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
@@ -126,7 +126,7 @@ const Projects = () => {
       </div>
 
       {/* Projects Count */}
-      <div className="max-w-7xl mx-auto mb-6">
+      <div className="mb-6">
         <p className="text-lightGrey/70">
           Showing {filteredAndSortedProjects.length} of {projects.length}{" "}
           projects
@@ -134,7 +134,7 @@ const Projects = () => {
       </div>
 
       {/* Projects Grid/List */}
-      <div className="max-w-7xl mx-auto">
+      <div>
         {filteredAndSortedProjects.length === 0 ? (
           <div className="text-center py-16">
             <div className="text-6xl mb-4">🔍</div>
@@ -255,9 +255,6 @@ const Projects = () => {
           </div>
         )}
       </div>
-
-      {/* Bottom spacing */}
-      <div className="h-20"></div>
     </div>
   );
 };
