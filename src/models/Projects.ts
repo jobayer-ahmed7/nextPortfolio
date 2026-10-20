@@ -5,6 +5,9 @@ export interface IProject {
     _id?: string;
     images: string[];
     title: string;
+    shortTitle?: string;
+    tagline?: string;
+    category?: string;
     overview: string;
     liveLink: string;
     frontendCode: string;
@@ -24,6 +27,9 @@ const projectSchema = new Schema<IProject>(
     {
         images: [{ type: String, required: true }],
         title: { type: String, required: true, },
+        shortTitle: { type: String },
+        tagline: { type: String },
+        category: { type: String },
         overview: { type: String, required: true },
         liveLink: { type: String, required: true},
         frontendCode: {type: String, required: true},
