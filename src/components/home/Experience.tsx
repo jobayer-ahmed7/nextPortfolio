@@ -18,7 +18,7 @@ const Experience = () => {
       id: 1,
       company: "GoldenRow",
       role: "Product Researcher, Sales Strategist & Trainner",
-      period: "Apr 2024 – Present",
+      period: "Apr 2024 – September 2026",
       location: "Remote",
       type: "Part-time",
       description: "Leading product research and sales strategy initiatives for e-commerce optimization.",
@@ -36,7 +36,7 @@ const Experience = () => {
       period: "Aug 2023 – Mar 2024",
       location: "Remote",
       type: "Full-time",
-      description: "Specialized in Amazon marketplace research and e-commerce optimization.",
+      description: "Walmart marketplace research and e-commerce optimization.",
       achievements: [
         "Conducted comprehensive product research ",
         "Enhanced product listings to improve visibility and conversion rates",
