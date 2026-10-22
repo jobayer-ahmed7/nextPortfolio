@@ -4,6 +4,7 @@ import {
   FaGithub,
   FaLinkedin,
   FaPhoneAlt,
+  FaWhatsapp,
   FaWhatsappSquare,
   FaEnvelope,
   FaPaperPlane,
@@ -31,10 +32,6 @@ const formSchema = z.object({
     .min(2, "Name must be at least 2 characters")
     .max(50, "Name must be less than 50 characters"),
   email: z.string().email("Please enter a valid email address").min(2).max(50),
-  subject: z
-    .string()
-    .min(2, "Subject must be at least 2 characters")
-    .max(200, "Subject must be less than 200 characters"),
   message: z
     .string()
     .min(10, "Message must be at least 10 characters")
@@ -52,7 +49,6 @@ const ContactMe = () => {
     defaultValues: {
       username: "",
       email: "",
-      subject: "",
       message: "",
     },
   });
@@ -85,10 +81,31 @@ const ContactMe = () => {
         {/* Left Section - Contact Form */}
         <div className="w-full h-full lg:w-3/5 ">
           <div className="bg-cardBg/60 backdrop-blur-none  p-8 border border-mutedGrey/50 shadow-2xl rounded-t-2xl lg:rounded-l-2xl lg:rounded-r-none">
-            <h3 className="text-2xl font-bold text-offWhite mb-6 flex items-center">
-              <FaEnvelope className="mr-3 text-classicGold" />
-              Get In Touch
+            <h3 className="text-2xl font-bold text-offWhite mb-2 flex items-center">
+              <FaWhatsapp className="mr-3 text-[#25D366]" />
+              Let&apos;s Build Your Online Store.
             </h3>
+            <p className="text-lightGrey/70 text-sm mb-6">
+              Message me on WhatsApp - I reply within a few hours.
+            </p>
+
+            {/* Primary CTA — WhatsApp */}
+            <a
+              href="https://wa.me/8801580320721?text=Hi%20Jobayer%2C%20I%27d%20like%20to%20discuss%20a%20project."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-3 w-full py-3.5 rounded-lg bg-[#25D366] hover:bg-[#1ebe5d] text-white font-semibold text-base transition-all duration-300 hover:scale-[1.02] shadow-lg hover:shadow-[#25D366]/30 mb-6"
+            >
+              <FaWhatsapp className="text-xl" />
+              Chat on WhatsApp
+            </a>
+
+            {/* Divider */}
+            <div className="flex items-center gap-3 mb-6">
+              <div className="flex-1 h-px bg-mutedGrey/50" />
+              <span className="text-lightGrey/50 text-xs">or send a message</span>
+              <div className="flex-1 h-px bg-mutedGrey/50" />
+            </div>
             <Form {...form}>
               <form
                 onSubmit={form.handleSubmit(handleFormSubmit)}
@@ -139,27 +156,6 @@ const ContactMe = () => {
                   )}
                 />
 
-                {/* Subject */}
-                <FormField
-                  control={form.control}
-                  name="subject"
-                  render={({ field }) => (
-                    <FormItem className="space-y-1">
-                      <FormLabel className="text-lightGrey font-medium">
-                        Subject *
-                      </FormLabel>
-                      <FormControl>
-                        <Input
-                          placeholder="What's this about?"
-                          {...field}
-                          disabled={isSubmitting}
-                          className="bg-mutedGrey/50 border-none  rounded-lg text-offWhite  h-11 px-4 transition-all duration-300 focus:border-classicGold  focus-visible:ring-2 focus-visible:ring-classicGold/20"
-                        />
-                      </FormControl>
-                      <FormMessage className="text-red-400 text-xs" />
-                    </FormItem>
-                  )}
-                />
 
                 {/* Message */}
                 <FormField
@@ -210,6 +206,14 @@ const ContactMe = () => {
         {/* Right Section - Contact Info */}
         <div className="w-full   lg:w-2/5 ">
           <div className="bg-cardBg h-full  p-8 border border-mutedGrey/30 lg:rounded-r-2xl lg:rounded-l-none rounded-b-2xl">
+            {/* Availability Badge */}
+            <div className="flex justify-center mb-6">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-green-500/10 border border-green-500/30 text-green-400">
+                <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                Taking new projects - 2 slots open
+              </span>
+            </div>
+
             <h3 className="text-2xl font-bold text-offWhite mb-8 text-center">
               Let&apos;s Connect
             </h3>
