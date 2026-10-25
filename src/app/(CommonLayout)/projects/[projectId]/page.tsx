@@ -25,7 +25,6 @@ import ProjectTechCard from "@/components/projects/ProjectTechCard";
 import ProjectTestimonial from "@/components/projects/ProjectTestimonial";
 import ProjectCtaBand from "@/components/projects/ProjectCtaBand";
 import ProjectNav from "@/components/projects/ProjectNav";
-import MobileCtaBar from "@/components/projects/MobileCtaBar";
 
 const ProjectDetailsPage = () => {
   const { projectId } = useParams();
@@ -197,9 +196,6 @@ const ProjectDetailsPage = () => {
         {/* Previous / Next Project Navigation */}
         <ProjectNav currentId={project._id || (projectId as string)} />
       </div>
-
-      {/* Sticky Bottom CTA Bar on Mobile (< lg) */}
-      <MobileCtaBar />
     </div>
   );
 };

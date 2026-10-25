@@ -8,6 +8,7 @@ import {
   FaWhatsappSquare,
   FaEnvelope,
   FaPaperPlane,
+  FaCode,
 } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import SectionHeading from "../shared/SectionHeading";
@@ -82,7 +83,7 @@ const ContactMe = () => {
         <div className="w-full h-full lg:w-3/5 ">
           <div className="bg-cardBg/60 backdrop-blur-none  p-8 border border-mutedGrey/50 shadow-2xl rounded-t-2xl lg:rounded-l-2xl lg:rounded-r-none">
             <h3 className="text-2xl font-bold text-offWhite mb-2 flex items-center">
-              <FaWhatsapp className="mr-3 text-[#25D366]" />
+              <FaCode className="mr-3 text-[#25D366]" />
               Let&apos;s Build Your Online Store.
             </h3>
             <p className="text-lightGrey/70 text-sm mb-6">

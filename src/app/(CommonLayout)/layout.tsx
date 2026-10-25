@@ -1,5 +1,6 @@
 import Footer from "@/components/shared/Footer";
 import Navbar from "@/components/shared/Navbar";
+import MobileCtaBar from "@/components/shared/MobileCtaBar";
 import Image from "next/image";
 
 const CommonLayout = ({ children }: { children: React.ReactNode }) => {
@@ -24,6 +25,9 @@ const CommonLayout = ({ children }: { children: React.ReactNode }) => {
 
         <Footer />
       </main>
+
+      {/* Site-wide mobile sticky bottom CTA */}
+      <MobileCtaBar />
     </> 
   );
 };
