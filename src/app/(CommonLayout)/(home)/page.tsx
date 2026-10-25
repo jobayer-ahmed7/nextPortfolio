@@ -6,6 +6,8 @@ import Services from "@/components/home/Services";
 import ContactMe from "@/components/home/ContactMe";
 import Experience from "@/components/home/Experience";
 import FeaturedProjects from "@/components/home/FeaturedProjects";
+import Process from "@/components/home/Process";
+import FAQ from "@/components/home/FAQ";
 
 const HomePage = () => {
   return (
@@ -38,10 +40,22 @@ const HomePage = () => {
           <FeaturedProjects />
         </section>
 
+        {/* Process Section */}
+
+        <section id="process" className="py-16 md:py-20">
+          <Process />
+        </section>
+
         {/* Experience Section */}
 
         <section id="experience" className="py-16 md:py-20">
           <Experience />
+        </section>
+
+        {/* FAQ Section */}
+
+        <section id="faq" className="py-16 md:py-20">
+          <FAQ />
         </section>
 
         {/* Contact Section */}

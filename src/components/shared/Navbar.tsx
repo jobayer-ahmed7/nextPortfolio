@@ -12,6 +12,8 @@ import {
   Send,
   Menu,
   Wrench,
+  Workflow,
+  HelpCircle,
   LucideIcon,
   ArrowUpRight,
 } from "lucide-react";
@@ -36,7 +38,9 @@ const navLinks: NavItem[] = [
   { id: "about", label: "About", icon: CircleUser },
   { id: "services", label: "Services", icon: Wrench },
   { id: "projects", label: "Projects", icon: BriefcaseBusiness },
+  { id: "process", label: "Process", icon: Workflow },
   { id: "experience", label: "Experience", icon: Briefcase },
+  { id: "faq", label: "FAQ", icon: HelpCircle },
   { id: "contact", label: "Contact", icon: Send },
 ];
 
@@ -131,7 +135,9 @@ const Navbar = () => {
         "about",
         "services",
         "projects",
+        "process",
         "experience",
+        "faq",
         "contact",
       ];
       for (let i = sectionIds.length - 1; i >= 0; i--) {
