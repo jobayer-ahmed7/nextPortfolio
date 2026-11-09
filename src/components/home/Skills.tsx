@@ -14,7 +14,6 @@ import {
   SiVite,
 } from "react-icons/si";
 import { TbBrandRedux } from "react-icons/tb";
-import SectionHeading from "../shared/SectionHeading";
 
 interface Skill {
   name: string;

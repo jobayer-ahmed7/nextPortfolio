@@ -39,10 +39,17 @@ const FeaturedProjects = () => {
     fetchAllProjects();
   }, []);
 
+  // Sort featured projects first, then by displayOrder
+  const sortedProjects = [...projects].sort((a, b) => {
+    if (a.isFeatured && !b.isFeatured) return -1;
+    if (!a.isFeatured && b.isFeatured) return 1;
+    return (a.displayOrder || 99) - (b.displayOrder || 99);
+  });
+
   // Determine how many projects to show
   const projectsToShow = showMore ? 6 : 3;
-  const displayedProjects = projects.slice(0, projectsToShow);
-  const hasMoreProjects = projects.length > 3;
+  const displayedProjects = sortedProjects.slice(0, projectsToShow);
+  const hasMoreProjects = sortedProjects.length > 3;
 
   return (
     <div className="w-full">

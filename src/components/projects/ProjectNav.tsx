@@ -51,8 +51,8 @@ const ProjectNav = ({ currentId }: ProjectNavProps) => {
   const prevProject = projects[(currentIndex - 1 + total) % total];
   const nextProject = projects[(currentIndex + 1) % total];
 
-  const prevTitle = prevProject.shortTitle || prevProject.title;
-  const nextTitle = nextProject.shortTitle || nextProject.title;
+  const prevTitle = prevProject.title;
+  const nextTitle = nextProject.title;
 
   return (
     <nav

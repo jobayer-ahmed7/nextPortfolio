@@ -90,13 +90,13 @@ const ProjectDetailsPage = () => {
     );
   }
 
-  const displayTitle = project.shortTitle || project.title || "Project";
+  const displayTitle = project.title || "Project";
   const hasChallenge = Boolean(project.challenge);
   const hasSolution = Boolean(project.solution);
   const hasCaseStudy = hasChallenge || hasSolution;
 
   return (
-    <div className="min-h-screen text-lightGrey pb-24 lg:pb-16">
+    <div className="min-h-screen text-lightGrey ">
       <div className="container mx-auto px-4 sm:px-6 md:px-8 pt-20 pb-16">
         {/* Back Button */}
         <div className="py-2 flex">
@@ -161,28 +161,33 @@ const ProjectDetailsPage = () => {
                     content={project.solution!}
                   />
                 )}
-                {project.results && project.results.length > 0 && (
-                  <ResultsCard results={project.results} />
+                {((project.results && project.results.length > 0) || (project.metrics && project.metrics.length > 0)) && (
+                  <ResultsCard results={project.results} metrics={project.metrics} />
                 )}
               </>
             ) : (
-              project.overview && (
-                <CaseStudyCard
-                  heading="Overview"
-                  content={project.overview}
-                />
-              )
+              <>
+                {project.overview && (
+                  <CaseStudyCard
+                    heading="Overview"
+                    content={project.overview}
+                  />
+                )}
+                {((project.results && project.results.length > 0) || (project.metrics && project.metrics.length > 0)) && (
+                  <ResultsCard results={project.results} metrics={project.metrics} />
+                )}
+              </>
             )}
 
-            {/* Key Capabilities */}
-            {project.features && project.features.length > 0 && (
-              <CapabilitiesCard features={project.features} />
-            )}
+            
           </div>
 
           {/* Right Column (5 cols): Sticky CTA + Compact Tech */}
           <div className="lg:col-span-5 space-y-6">
-            {/* <ProjectCtaCard /> */}
+            {/* Key Capabilities */}
+            {project.features && project.features.length > 0 && (
+              <CapabilitiesCard features={project.features} />
+            )}
             <ProjectTechCard technologies={project.technologies} />
           </div>
         </div>

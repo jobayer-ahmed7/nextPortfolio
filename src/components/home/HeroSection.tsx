@@ -40,6 +40,7 @@ const HeroSection = () => {
                     "Next.js Developer",
                     2000,
                     "React Developer",
+                    2000
                   ]}
                   speed={10}
                   repeat={Infinity}
