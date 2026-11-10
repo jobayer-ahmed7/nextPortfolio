@@ -13,7 +13,7 @@ import Link from "next/link";
 const INTRO_TEXT =
   "Real projects built for real businesses. See how I turn ideas into fast, scalable e-commerce and web apps.";
 const CTA_HEADING = "Need something like this for your business?";
-const CTA_SUBTEXT = "Tell me about your project and I'll reply within 24 hours.";
+const CTA_SUBTEXT = "Tell me about your project and I'll reply within 10 hours.";
 const WHATSAPP_NUMBER = 
   process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "1234567890";
 // ────────────────────────────────────────────────────────────────────

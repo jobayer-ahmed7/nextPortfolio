@@ -54,20 +54,27 @@ const ContactMe = () => {
     },
   });
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleFormSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
     setSubmitStatus("idle");
 
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      // console.log(values);
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error ?? "Unknown error");
+      }
+
       setSubmitStatus("success");
       form.reset();
     } catch (error) {
+      console.error(error);
       setSubmitStatus("error");
-      console.log(error);
     } finally {
       setIsSubmitting(false);
     }
@@ -253,7 +260,7 @@ const ContactMe = () => {
               {/* Social Links */}
               <div className="pt-6 border-t border-mutedGrey/50">
                 <div className="text-lightGrey mb-4 text-center">
-                  <span className="font-medium">Follow Me</span>
+                  <span className="font-medium">Reach me on</span>
                 </div>
                 <div className="flex justify-center gap-6">
                   <a

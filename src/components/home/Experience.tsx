@@ -99,12 +99,12 @@ const Experience = () => {
                 {/* Achievements */}
                 <div className="space-y-3">
                   <h4 className="text-xs font-semibold text-lightGrey uppercase tracking-wide">
-                    Key Achievements
+                    My role
                   </h4>
                   <div className="grid gap-2">
                     {experience.achievements.map((achievement, i) => (
                       <div key={i} className="flex items-start gap-3 group/item">
-                        <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-classicGold flex-shrink-0 group-hover/item:scale-125 transition-transform duration-200"></div>
+                        <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-classicGold shrink-0 group-hover/item:scale-125 transition-transform duration-200"></div>
                         <p className="text-lightGrey/90 leading-relaxed group-hover/item:text-white transition-colors duration-200 text-sm">
                           {achievement}
                         </p>
@@ -114,7 +114,7 @@ const Experience = () => {
                 </div>
                 
                 {/* Subtle decorative element */}
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-classicGold/20 to-transparent rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-classicGold/20 to-transparent rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
             </div>
           ))}
