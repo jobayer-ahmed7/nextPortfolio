@@ -29,11 +29,11 @@ src/
 │   │   ├── (home)/page.tsx     ← Home page; assembles all section components
 │   │   └── projects/
 │   │       ├── page.tsx        ← /projects list: filter + sort + grid/list view
-│   │       └── [projectId]/
-│   │           └── page.tsx    ← /projects/:id detail: carousel + overview + tech
+│   │       └── [slug]/
+│   │           └── page.tsx    ← /projects/:slug detail: carousel + overview + tech
 │   ├── api/projects/
 │   │   ├── route.ts            ← GET /api/projects (returns all, sorted by createdAt desc)
-│   │   └── [id]/route.ts       ← GET /api/projects/:id (returns one by MongoDB _id)
+│   │   └── [slug]/route.ts     ← GET /api/projects/:slug (returns one by slug or MongoDB _id)
 │   ├── layout.tsx              ← Root: fonts (Geist), GTM, global metadata
 │   ├── globals.css             ← Tailwind @theme tokens + custom animations
 │   ├── sitemap.ts              ← Dynamic SEO sitemap (includes project pages)
@@ -80,7 +80,7 @@ Files in `src/components/ui/` are **auto-generated** by the shadcn CLI. Do not e
 - **Spacing architecture — single source of truth:**
   - `container mx-auto` and horizontal padding (`px-4 sm:px-6 md:px-8`) are applied **once** on the page-level wrapper (`page.tsx`). Section components must **never** add their own `container`, `mx-auto`, or `px-*`.
   - Vertical rhythm between sections is set on the `<section>` tag in `page.tsx` using `py-16 md:py-20`. Components must not use `min-h-[*vh]` as a spacing mechanism.
-  - Sub-pages (`/projects`, `/projects/:id`) use `pt-20 pb-16` on their root container to clear the fixed navbar.
+  - Sub-pages (`/projects`, `/projects/:slug`) use `pt-20 pb-16` on their root container to clear the fixed navbar.
   - Card-internal padding (`p-6`, `p-8`) lives inside card/component files and is intentional — do not strip it.
 
 
@@ -147,7 +147,7 @@ Files in `src/components/ui/` are **auto-generated** by the shadcn CLI. Do not e
 | Method | Endpoint | Auth | Description |
 |--------|----------|------|-------------|
 | `GET` | `/api/projects` | None | All projects, newest first |
-| `GET` | `/api/projects/:id` | None | Single project by MongoDB `_id` |
+| `GET` | `/api/projects/:slug` | None | Single project by slug (or fallback `_id`) |
 
 **Error response shape:** `{ "error": "<message>" }` with appropriate HTTP status.
 
@@ -159,7 +159,7 @@ The Navbar (`src/components/shared/Navbar.tsx`) is rendered site-wide in `src/ap
 - **Desktop (`md:` and above)**: Top-centered floating glassmorphic pill nav (`fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-50`). Features smooth spring-animated active indicator pill (`layoutId="activeNavBackground"` via `motion`) styled in Brand Gold (`classicGold`).
 - **Mobile (`< md`)**: Floating island pinned at `fixed top-2 inset-x-3 sm:inset-x-4 z-50`. Includes smart auto-hide on scroll-down (`-translate-y-24`) and reveal on scroll-up, staying pinned near page top (`scrollY < 50`) and while open. Opens a shadcn/ui `Sheet` drawer from the right.
 - **Scroll Tracking & Lock Engine**: Real-time scroll listener computes viewport positions for sections (`home`, `about`, `skills`, `projects`, `experience`, `contact`). Programmatic clicks trigger a scroll lock (`isProgrammaticScrollRef = true`) released on `scrollend` / timeout fallback to prevent intermediate highlight jitter/flickering.
-- **Cross-Page Routing**: When on the home page (`/`), links smooth-scroll directly to `#id`. When on sub-pages (e.g., `/projects`, `/projects/:id`), links seamlessly navigate to `/#id`. Sub-pages use `pt-20 pb-16` on their root container so content and back buttons never render behind the floating navbar island.
+- **Cross-Page Routing**: When on the home page (`/`), links smooth-scroll directly to `#id`. When on sub-pages (e.g., `/projects`, `/projects/:slug`), links seamlessly navigate to `/#id`. Sub-pages use `pt-20 pb-16` on their root container so content and back buttons never render behind the floating navbar island.
 
 ---
 

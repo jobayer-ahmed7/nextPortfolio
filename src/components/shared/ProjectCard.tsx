@@ -13,6 +13,7 @@ interface ProjectCardProps {
 const ProjectCard = ({ project, priority = false }: ProjectCardProps) => {
   const displayTitle = project?.title || "Project";
   const displayDescription = project?.tagline || project?.overview || "";
+  const detailHref = `/projects/${project?.slug || project?._id}`;
 
   // Show at most 4 technology badges so card remains clean
   const featuredTechnologies = [
@@ -24,7 +25,10 @@ const ProjectCard = ({ project, priority = false }: ProjectCardProps) => {
   return (
     <div className="relative bg-cardBg rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 border border-darkGrey/50 hover:border-classicGold/30 group flex flex-col h-full">
       {/* Project Image */}
-      <div className="relative w-full h-48 overflow-hidden bg-richBlack/50 shrink-0">
+      <Link
+        href={detailHref}
+        className="block relative w-full h-48 overflow-hidden bg-richBlack/50 shrink-0"
+      >
         {project?.images?.[0] && (
           <Image
             src={project.images[0]}
@@ -44,7 +48,7 @@ const ProjectCard = ({ project, priority = false }: ProjectCardProps) => {
           </div>
         )}
         <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-      </div>
+      </Link>
 
       {/* Project Content */}
       <div className="p-6 flex flex-col flex-1 justify-between gap-4">
@@ -66,9 +70,11 @@ const ProjectCard = ({ project, priority = false }: ProjectCardProps) => {
           )}
 
           {/* Title */}
-          <h3 className="text-xl font-bold text-lightGrey line-clamp-1 group-hover:text-classicGold transition-colors duration-300">
-            {displayTitle}
-          </h3>
+          <Link href={detailHref} className="block">
+            <h3 className="text-xl font-bold text-lightGrey line-clamp-1 group-hover:text-classicGold transition-colors duration-300">
+              {displayTitle}
+            </h3>
+          </Link>
 
           {/* Tagline / Overview */}
           <p className="text-lightGrey/80 text-sm line-clamp-2 leading-relaxed">
@@ -88,7 +94,11 @@ const ProjectCard = ({ project, priority = false }: ProjectCardProps) => {
           {featuredTechnologies.length > 0 && (
             <div className="flex flex-wrap gap-1.5 pt-1">
               {featuredTechnologies.map((tech, index) => (
-                <TechnologyBadge key={index} technology={tech} variant="secondary" />
+                <TechnologyBadge
+                  key={index}
+                  technology={tech}
+                  variant="secondary"
+                />
               ))}
             </div>
           )}
@@ -98,7 +108,7 @@ const ProjectCard = ({ project, priority = false }: ProjectCardProps) => {
         <div className="flex gap-3 pt-2 items-center">
           {/* Main card link to case study */}
           <Link
-            href={`/projects/${project?._id}`}
+            href={detailHref}
             className="flex-1 flex items-center justify-center bg-classicGold text-mutedGrey px-4 py-2 rounded-lg hover:bg-classicGold/90 transition-all duration-300 font-medium group/button focus:outline-none focus-visible:ring-2 focus-visible:ring-classicGold text-sm"
           >
             View Case Study

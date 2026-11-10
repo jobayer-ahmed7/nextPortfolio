@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useParams } from "next/navigation";
 import Autoplay from "embla-carousel-autoplay";
 import { Card, CardContent } from "@/components/ui/card";
@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/carousel";
 import Link from "next/link";
 import Image from "next/image";
-import { fetchProjectById } from "@/lib/api";
+import { fetchProjectBySlug } from "@/lib/api";
 import { IProject } from "@/models/Projects";
 import Loading from "@/components/shared/Loading";
 import BackButton from "@/components/shared/butttons/BackButton";
@@ -27,21 +27,22 @@ import ProjectCtaBand from "@/components/projects/ProjectCtaBand";
 import ProjectNav from "@/components/projects/ProjectNav";
 
 const ProjectDetailsPage = () => {
-  const { projectId } = useParams();
+  const { slug } = useParams();
   const [project, setProject] = useState<IProject | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [hasError, setHasError] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchSingleProject = async () => {
-      if (!projectId) {
+      if (!slug) {
         setHasError(true);
         setIsLoading(false);
         return;
       }
+
       try {
         setIsLoading(true);
-        const res = await fetchProjectById(projectId as string);
+        const res = await fetchProjectBySlug(slug as string);
         if (res) {
           setProject(res);
           setHasError(false);
@@ -57,11 +58,9 @@ const ProjectDetailsPage = () => {
     };
 
     fetchSingleProject();
-  }, [projectId]);
+  }, [slug]);
 
-  const plugin = useRef(
-    Autoplay({ delay: 4000, stopOnInteraction: true })
-  );
+  const plugin = useRef(Autoplay({ delay: 4000, stopOnInteraction: true }));
 
   if (isLoading) {
     return <Loading height={"min-h-screen"} />;
@@ -75,7 +74,8 @@ const ProjectDetailsPage = () => {
             Project not found
           </h1>
           <p className="text-lightGrey/75 text-sm sm:text-base leading-relaxed">
-            The project you are looking for does not exist or may have been removed.
+            The project you are looking for does not exist or may have been
+            removed.
           </p>
           <div>
             <Link
@@ -161,8 +161,12 @@ const ProjectDetailsPage = () => {
                     content={project.solution!}
                   />
                 )}
-                {((project.results && project.results.length > 0) || (project.metrics && project.metrics.length > 0)) && (
-                  <ResultsCard results={project.results} metrics={project.metrics} />
+                {((project.results && project.results.length > 0) ||
+                  (project.metrics && project.metrics.length > 0)) && (
+                  <ResultsCard
+                    results={project.results}
+                    metrics={project.metrics}
+                  />
                 )}
               </>
             ) : (
@@ -173,13 +177,15 @@ const ProjectDetailsPage = () => {
                     content={project.overview}
                   />
                 )}
-                {((project.results && project.results.length > 0) || (project.metrics && project.metrics.length > 0)) && (
-                  <ResultsCard results={project.results} metrics={project.metrics} />
+                {((project.results && project.results.length > 0) ||
+                  (project.metrics && project.metrics.length > 0)) && (
+                  <ResultsCard
+                    results={project.results}
+                    metrics={project.metrics}
+                  />
                 )}
               </>
             )}
-
-            
           </div>
 
           {/* Right Column (5 cols): Sticky CTA + Compact Tech */}
@@ -199,7 +205,7 @@ const ProjectDetailsPage = () => {
         <ProjectCtaBand />
 
         {/* Previous / Next Project Navigation */}
-        <ProjectNav currentId={project._id || (projectId as string)} />
+        <ProjectNav currentSlug={project.slug || (slug as string)} />
       </div>
     </div>
   );

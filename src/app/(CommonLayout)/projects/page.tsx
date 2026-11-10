@@ -260,7 +260,7 @@ const Projects = () => {
 
                     <div className="flex flex-wrap gap-3 pt-2">
                       <Link
-                        href={`/projects/${project._id}`}
+                        href={`/projects/${project.slug || project._id}`}
                         className="inline-flex items-center px-4 py-2 bg-classicGold text-mutedGrey rounded-lg hover:bg-classicGold/90 transition-colors duration-300 font-medium text-sm"
                       >
                         View Case Study

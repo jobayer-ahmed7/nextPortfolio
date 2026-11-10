@@ -31,11 +31,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try {
     // We can fetch directly from the DB here because this runs on the server
     await connectToDatabase()
-    // Only select the fields we need (_id and updatedAt)
-    const projects = await Project.find({}, { _id: 1, updatedAt: 1 }).lean()
+    // Select the fields we need (slug, _id and updatedAt)
+    const projects = await Project.find({}, { slug: 1, _id: 1, updatedAt: 1 }).lean()
     
     const dynamicProjectRoutes: MetadataRoute.Sitemap = projects.map((project: any) => ({
-      url: `${baseUrl}/projects/${project._id.toString()}`,
+      url: `${baseUrl}/projects/${project.slug || project._id.toString()}`,
       lastModified: project.updatedAt || new Date(),
       changeFrequency: 'monthly',
       priority: 0.6,
