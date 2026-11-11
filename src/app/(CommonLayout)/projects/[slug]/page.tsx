@@ -3,7 +3,6 @@
 import { useEffect, useState, useRef } from "react";
 import { useParams } from "next/navigation";
 import Autoplay from "embla-carousel-autoplay";
-import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -108,28 +107,24 @@ const ProjectDetailsPage = () => {
           <div className="relative mt-2">
             <Carousel
               plugins={[plugin.current]}
-              className="w-full h-[35vh] md:h-[45vh]"
+              className="w-full"
               onMouseEnter={plugin.current.stop}
               onMouseLeave={plugin.current.reset}
             >
               <CarouselContent>
                 {project.images.map((imgUrl, index) => (
-                  <CarouselItem key={index} className="h-[35vh] md:h-[45vh]">
-                    <div className="p-1 h-full">
-                      <Card className="h-full border-none bg-cardBg/40 overflow-hidden rounded-2xl sm:rounded-3xl">
-                        <CardContent className="flex items-center justify-center h-full p-0">
-                          <div className="relative w-full h-full bg-richBlack/60">
-                            <Image
-                              alt={`${displayTitle} screenshot ${index + 1}`}
-                              fill
-                              priority={index === 0}
-                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
-                              className="object-cover"
-                              src={imgUrl}
-                            />
-                          </div>
-                        </CardContent>
-                      </Card>
+                  <CarouselItem key={index} >
+                    <div className="flex justify-center">
+                      <div className="relative w-full lg:w-4/5 aspect-video max-h-[75vh] overflow-hidden rounded-2xl sm:rounded-3xl bg-richBlack/60">
+                        <Image
+                          alt={`${displayTitle} screenshot ${index + 1}`}
+                          fill
+                          priority={index === 0}
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
+                          className="object-cover"
+                          src={imgUrl}
+                        />
+                    </div>
                     </div>
                   </CarouselItem>
                 ))}
