@@ -89,14 +89,14 @@ next-portfolio/
 │   │   │   │   └── page.tsx            # Home page — all sections assembled
 │   │   │   └── projects/
 │   │   │       ├── page.tsx            # /projects — full project listing + filter
-│   │   │       └── [projectId]/
-│   │   │           └── page.tsx        # /projects/:id — project detail with carousel
+│   │   │       └── [slug]/
+│   │   │           └── page.tsx        # /projects/:slug — project detail with carousel
 │   │   │
 │   │   ├── api/
 │   │   │   └── projects/
 │   │   │       ├── route.ts            # GET /api/projects
-│   │   │       └── [id]/
-│   │   │           └── route.ts        # GET /api/projects/:id
+│   │   │       └── [slug]/
+│   │   │           └── route.ts        # GET /api/projects/:slug
 │   │   │
 │   │   ├── layout.tsx                  # Root layout: fonts + GTM + metadata
 │   │   ├── globals.css                 # Global styles: Tailwind + custom theme + animations
@@ -170,7 +170,7 @@ next-portfolio/
 |-------|------|-------------|
 | `/` | `(CommonLayout)/(home)/page.tsx` | Single-page portfolio with 6 sections |
 | `/projects` | `(CommonLayout)/projects/page.tsx` | All projects with search, filter, sort |
-| `/projects/:id` | `(CommonLayout)/projects/[projectId]/page.tsx` | Project detail: carousel, overview, features, tech stack |
+| `/projects/:slug` | `(CommonLayout)/projects/[slug]/page.tsx` | Project detail: carousel, overview, features, tech stack |
 
 ### Home Page Sections
 
@@ -224,11 +224,11 @@ Returns all projects sorted by `createdAt` descending.
 
 ---
 
-### `GET /api/projects/:id`
+### `GET /api/projects/:slug`
 
-Returns a single project by its MongoDB `_id`.
+Returns a single project by its unique `slug` (or fallback MongoDB `_id`).
 
-**Path Parameters:** `id` — MongoDB ObjectId string
+**Path Parameters:** `slug` — Project slug string or MongoDB ObjectId string
 
 **Response:** `200 OK` — Single [`IProject`](#iproject-schema) object
 

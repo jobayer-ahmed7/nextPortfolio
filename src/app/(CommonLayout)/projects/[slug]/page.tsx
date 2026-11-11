@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useParams } from "next/navigation";
 import Autoplay from "embla-carousel-autoplay";
-import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -13,7 +12,7 @@ import {
 } from "@/components/ui/carousel";
 import Link from "next/link";
 import Image from "next/image";
-import { fetchProjectById } from "@/lib/api";
+import { fetchProjectBySlug } from "@/lib/api";
 import { IProject } from "@/models/Projects";
 import Loading from "@/components/shared/Loading";
 import BackButton from "@/components/shared/butttons/BackButton";
@@ -27,21 +26,22 @@ import ProjectCtaBand from "@/components/projects/ProjectCtaBand";
 import ProjectNav from "@/components/projects/ProjectNav";
 
 const ProjectDetailsPage = () => {
-  const { projectId } = useParams();
+  const { slug } = useParams();
   const [project, setProject] = useState<IProject | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [hasError, setHasError] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchSingleProject = async () => {
-      if (!projectId) {
+      if (!slug) {
         setHasError(true);
         setIsLoading(false);
         return;
       }
+
       try {
         setIsLoading(true);
-        const res = await fetchProjectById(projectId as string);
+        const res = await fetchProjectBySlug(slug as string);
         if (res) {
           setProject(res);
           setHasError(false);
@@ -57,11 +57,9 @@ const ProjectDetailsPage = () => {
     };
 
     fetchSingleProject();
-  }, [projectId]);
+  }, [slug]);
 
-  const plugin = useRef(
-    Autoplay({ delay: 4000, stopOnInteraction: true })
-  );
+  const plugin = useRef(Autoplay({ delay: 4000, stopOnInteraction: true }));
 
   if (isLoading) {
     return <Loading height={"min-h-screen"} />;
@@ -75,7 +73,8 @@ const ProjectDetailsPage = () => {
             Project not found
           </h1>
           <p className="text-lightGrey/75 text-sm sm:text-base leading-relaxed">
-            The project you are looking for does not exist or may have been removed.
+            The project you are looking for does not exist or may have been
+            removed.
           </p>
           <div>
             <Link
@@ -90,13 +89,13 @@ const ProjectDetailsPage = () => {
     );
   }
 
-  const displayTitle = project.shortTitle || project.title || "Project";
+  const displayTitle = project.title || "Project";
   const hasChallenge = Boolean(project.challenge);
   const hasSolution = Boolean(project.solution);
   const hasCaseStudy = hasChallenge || hasSolution;
 
   return (
-    <div className="min-h-screen text-lightGrey pb-24 lg:pb-16">
+    <div className="min-h-screen text-lightGrey ">
       <div className="container mx-auto px-4 sm:px-6 md:px-8 pt-20 pb-16">
         {/* Back Button */}
         <div className="py-2 flex">
@@ -108,28 +107,25 @@ const ProjectDetailsPage = () => {
           <div className="relative mt-2">
             <Carousel
               plugins={[plugin.current]}
-              className="w-full h-[35vh] md:h-[45vh]"
+              className="w-full"
               onMouseEnter={plugin.current.stop}
               onMouseLeave={plugin.current.reset}
             >
               <CarouselContent>
                 {project.images.map((imgUrl, index) => (
-                  <CarouselItem key={index} className="h-[35vh] md:h-[45vh]">
-                    <div className="p-1 h-full">
-                      <Card className="h-full border-none bg-cardBg/40 overflow-hidden rounded-2xl sm:rounded-3xl">
-                        <CardContent className="flex items-center justify-center h-full p-0">
-                          <div className="relative w-full h-full bg-richBlack/60">
-                            <Image
-                              alt={`${displayTitle} screenshot ${index + 1}`}
-                              fill
-                              priority={index === 0}
-                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
-                              className="object-cover"
-                              src={imgUrl}
-                            />
-                          </div>
-                        </CardContent>
-                      </Card>
+                  <CarouselItem key={index} >
+                    <div className="flex justify-center">
+                      <div className="relative w-full lg:w-4/5 aspect-video max-h-[75vh] overflow-hidden rounded-2xl sm:rounded-3xl bg-richBlack/60">
+                        <Image
+                          alt={`${displayTitle} screenshot ${index + 1}`}
+                          fill
+                          priority={index === 0}
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1800px"
+                          quality={90}
+                          className="object-cover"
+                          src={imgUrl}
+                        />
+                    </div>
                     </div>
                   </CarouselItem>
                 ))}
@@ -161,28 +157,39 @@ const ProjectDetailsPage = () => {
                     content={project.solution!}
                   />
                 )}
-                {project.results && project.results.length > 0 && (
-                  <ResultsCard results={project.results} />
+                {((project.results && project.results.length > 0) ||
+                  (project.metrics && project.metrics.length > 0)) && (
+                  <ResultsCard
+                    results={project.results}
+                    metrics={project.metrics}
+                  />
                 )}
               </>
             ) : (
-              project.overview && (
-                <CaseStudyCard
-                  heading="Overview"
-                  content={project.overview}
-                />
-              )
-            )}
-
-            {/* Key Capabilities */}
-            {project.features && project.features.length > 0 && (
-              <CapabilitiesCard features={project.features} />
+              <>
+                {project.overview && (
+                  <CaseStudyCard
+                    heading="Overview"
+                    content={project.overview}
+                  />
+                )}
+                {((project.results && project.results.length > 0) ||
+                  (project.metrics && project.metrics.length > 0)) && (
+                  <ResultsCard
+                    results={project.results}
+                    metrics={project.metrics}
+                  />
+                )}
+              </>
             )}
           </div>
 
           {/* Right Column (5 cols): Sticky CTA + Compact Tech */}
           <div className="lg:col-span-5 space-y-6">
-            {/* <ProjectCtaCard /> */}
+            {/* Key Capabilities */}
+            {project.features && project.features.length > 0 && (
+              <CapabilitiesCard features={project.features} />
+            )}
             <ProjectTechCard technologies={project.technologies} />
           </div>
         </div>
@@ -194,7 +201,7 @@ const ProjectDetailsPage = () => {
         <ProjectCtaBand />
 
         {/* Previous / Next Project Navigation */}
-        <ProjectNav currentId={project._id || (projectId as string)} />
+        <ProjectNav currentSlug={project.slug || (slug as string)} />
       </div>
     </div>
   );

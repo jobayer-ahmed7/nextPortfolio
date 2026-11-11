@@ -8,10 +8,11 @@ import { fetchProjects } from "@/lib/api";
 import { IProject } from "@/models/Projects";
 
 interface ProjectNavProps {
-  currentId: string;
+  currentSlug?: string;
+  currentId?: string;
 }
 
-const ProjectNav = ({ currentId }: ProjectNavProps) => {
+const ProjectNav = ({ currentSlug, currentId }: ProjectNavProps) => {
   const [projects, setProjects] = useState<IProject[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -42,7 +43,11 @@ const ProjectNav = ({ currentId }: ProjectNavProps) => {
     return null;
   }
 
-  const currentIndex = projects.findIndex((p) => p._id === currentId);
+  const target = currentSlug || currentId;
+  const currentIndex = projects.findIndex(
+    (p) => p.slug === target || p._id === target
+  );
+
   if (currentIndex === -1) {
     return null;
   }
@@ -51,8 +56,10 @@ const ProjectNav = ({ currentId }: ProjectNavProps) => {
   const prevProject = projects[(currentIndex - 1 + total) % total];
   const nextProject = projects[(currentIndex + 1) % total];
 
-  const prevTitle = prevProject.shortTitle || prevProject.title;
-  const nextTitle = nextProject.shortTitle || nextProject.title;
+  const prevTitle = prevProject.title;
+  const nextTitle = nextProject.title;
+  const prevHref = `/projects/${prevProject.slug || prevProject._id}`;
+  const nextHref = `/projects/${nextProject.slug || nextProject._id}`;
 
   return (
     <nav
@@ -61,7 +68,7 @@ const ProjectNav = ({ currentId }: ProjectNavProps) => {
     >
       {/* Previous project link */}
       <Link
-        href={`/projects/${prevProject._id}`}
+        href={prevHref}
         className="flex items-center gap-3 group w-full sm:w-auto hover:text-classicGold transition-colors duration-200"
       >
         {prevProject.images?.[0] && (
@@ -97,7 +104,7 @@ const ProjectNav = ({ currentId }: ProjectNavProps) => {
 
       {/* Next project link */}
       <Link
-        href={`/projects/${nextProject._id}`}
+        href={nextHref}
         className="flex items-center justify-end gap-3 group w-full sm:w-auto hover:text-classicGold transition-colors duration-200 text-right"
       >
         <div className="text-right">

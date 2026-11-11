@@ -41,7 +41,7 @@ const services: Service[] = [
       "SEO & performance optimisation",
     ],
     timeline: "About 2 weeks",
-    startingFrom: "৳15000",
+    startingFrom: "$200",
     featured: true,
   },
   {
@@ -58,7 +58,7 @@ const services: Service[] = [
       "Deployed & live within days",
     ],
     timeline: "About a week",
-    startingFrom: "৳7000",
+    startingFrom: "$100",
   },
   {
     icon: FaTools,
@@ -74,7 +74,7 @@ const services: Service[] = [
       "Post-delivery support call",
     ],
     timeline: "About a week",
-    startingFrom: "৳5000",
+    startingFrom: "$50",
   },
 ];
 

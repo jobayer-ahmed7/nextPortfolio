@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 export async function GET() {
     try {
         await connectToDatabase();
-        const projects = await Project.find({}).sort({ createdAt: -1 })
+        const projects = await Project.find({}).sort({ displayOrder: 1, createdAt: -1 });
         if (!projects || projects.length === 0) { 
             return NextResponse.json([], { status: 200 })
         }
