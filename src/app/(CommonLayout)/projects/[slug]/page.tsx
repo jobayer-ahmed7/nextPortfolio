@@ -120,7 +120,8 @@ const ProjectDetailsPage = () => {
                           alt={`${displayTitle} screenshot ${index + 1}`}
                           fill
                           priority={index === 0}
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1800px"
+                          quality={90}
                           className="object-cover"
                           src={imgUrl}
                         />

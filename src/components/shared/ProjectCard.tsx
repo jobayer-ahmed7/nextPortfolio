@@ -35,8 +35,9 @@ const ProjectCard = ({ project, priority = false }: ProjectCardProps) => {
             alt={displayTitle}
             fill
             priority={priority}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 360px"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 500px"
             style={{ objectFit: "cover" }}
+            quality={95}
             className="group-hover:scale-105 transition-transform duration-300"
           />
         )}
